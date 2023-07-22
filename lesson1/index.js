@@ -1,24 +1,106 @@
 'use strict';
-//lesson19
-
-let numberOfFilms = +prompt('How many did you watch movies?');
-
-let personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
+//lesson 21
 
 
-// personalMovieDB.movies={[yourAnswer]:yourAnswer2}
-personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
-personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
-// personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+const hamburger=0
+const fries=0,
+    cola=0,
+    nuggets=2
+
+if (hamburger===3&&cola===2||fries===3 && nuggets ){
+    console.log("I am full");
+}
 
 
-console.log(personalMovieDB);
+console.log( NaN || 2 || undefined );
+
+
+console.log( NaN && 2 && undefined );
+
+
+console.log( 1 && 2 && 3 );
+
+
+console.log( !1 && 2 || !3 );
+
+
+console.log( 25 || null && !3 );
+
+
+console.log( NaN || null || !3 || undefined || 5);
+
+
+console.log( NaN || null && !3 && undefined || 5);
+
+
+console.log( 5 === 5 && 3 > 1 || 5);
+
+// const hamburger=true
+// const fries=true
+// if (hamburger&&fries){
+//     console.log("I am full");
+// // }
+// const hamburger = 2;
+// const fries = 1;
+// const cola = 0;
+// if (hamburger ||  cola || fries) {
+//     console.log('everybody is full');
+// } else {
+//     console.log('everybody is going out')}
+
+
+// }const hamburger = 2;
+// const fries = 1;
+// const cola = 0;
+// if (hamburger >= 3 && cola && fries) {
+//     console.log('everybody is full');
+// } else {
+//     console.log('everybody is going out');
+// }
+
+
+//lesson 20
+// if (2) {
+//     console.log('ok');
+// } else {
+//     console.log('Error');
+// }
+
+// const num = 50;
+// if (num < 49) {
+//     console.log('Error');
+// } else if (num > 100) {
+//     console.log('Much');
+// } else {
+//     console.log('ok');
+// }
+// (num === 50) ? console.log('ok') : console.log('Error');
+
+// switch (num){
+//     case 50:
+//         console.log("ok");
+// }
+
+// //lesson19
+//
+// let numberOfFilms = +prompt('How many did you watch movies?');
+//
+// let personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+//
+//
+// // personalMovieDB.movies={[yourAnswer]:yourAnswer2}
+// personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+// personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+// // personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+//
+//
+// console.log(personalMovieDB);
 // //lesson 15
 // console.log('arr' + '-object');
 // console.log(4 + '-object');
