@@ -1,22 +1,42 @@
 'use strict';
-//lesson 15
-console.log('arr' + '-object');
-console.log(4 + '-object');
-console.log(4 + '4');
+//lesson19
 
-let incr = 10,
-    decr = 10;
-incr++;
-decr++;
-console.log(incr);
-console.log(decr);
-console.log(5 % 2);
-console.log(2 * 4 === 8);
-console.log(2 * 4 === '8');
+let numberOfFilms = +prompt('How many did you watch movies?');
 
-const isChecked = true,
-    isClose = false;
-console.log(isChecked || isClose);
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+
+// personalMovieDB.movies={[yourAnswer]:yourAnswer2}
+personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+// personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+
+
+console.log(personalMovieDB);
+// //lesson 15
+// console.log('arr' + '-object');
+// console.log(4 + '-object');
+// console.log(4 + '4');
+//
+// let incr = 10,
+//     decr = 10;
+// incr++;
+// decr++;
+// console.log(incr);
+// console.log(decr);
+// console.log(5 % 2);
+// console.log(2 * 4 === 8);
+// console.log(2 * 4 === '8');
+//
+// const isChecked = true,
+//     isClose = false;
+// console.log(isChecked || isClose);
 
 
 // //lesson 14
