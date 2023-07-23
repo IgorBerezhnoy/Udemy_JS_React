@@ -1,6 +1,160 @@
 'use strict';
-// //lesson 22
-let num =50
+
+//Task3
+const lines = 5;
+let result = '';
+// Проверяется именно переменная result, формируйте строку в ней
+for (let i = 1; i <=lines+1 ; i++) {
+    for (let j = 0; j <i ; j++) {
+    result+="*"
+        for (let k = 0; k < j; k++) {
+    result+="*"
+break
+        }
+    }
+    result+="\n"
+}
+console.log(result);
+
+//task 2
+// // Место для первой задачи
+// function firstTask() {
+//     // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+//     const arr = [3, 5, 8, 16, 20, 23, 50];
+//     const result = [];
+//
+//     // Пишем решение вот тут
+//     for (let i = 0; i < arr.length; i++) {
+//         result[i] = arr[i];
+//     }
+//
+//     // Не трогаем
+//     return result;
+// }
+//
+// function secondTask() {
+//     // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+//     const data = [5, 10, 'Shopping', 20, 'Homework'];
+//
+//     // Пишем решение вот тут
+//     for (let i = 0; i < data.length; i++) {
+//         if (typeof data[i] === 'string') {
+//             data[i] += ' - done';
+//         } else {
+//             data[i] *= 2;
+//
+//         }
+//     }
+//     // Не трогаем
+//     return data;
+// }
+//
+// // Место для третьей задачи
+// function thirdTask() {
+//     // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+//     const data = [5, 10, 'Shopping', 20, 'Homework'];
+//     const result = [];
+//     for (let i = 0; i < data.length; i++) {
+// result[i]=data[data.length-1-i]
+//     }
+//     // Пишем решение вот тут
+//
+//
+//     // Не трогаем
+//     return result;
+// }
+
+// tasks
+// // Место для первой задачи
+// function firstTask() {
+//     for (let i = 5; i <= 10; i++) {
+//         console.log(i);
+//     }
+//
+//
+// }
+//
+// // Место для второй задачи
+// function secondTask() {
+//     for (let i = 20; i >= 10; i--) {
+//         console.log(i);
+//         if (i === 13) break;
+//     }
+// }
+//
+//
+// // Место для третьей задачи
+// function thirdTask() {
+//     for (let i = 2; i <= 10; i++) {
+//         if (i % 2 === 1) continue;
+//         console.log(i);
+//     }
+//
+// }
+// // Место для четвертой задачи
+//
+// // Цикл, который нужно переписать:
+//
+// // for (let i = 2; i <= 16; i++) {
+// //     if (i % 2 === 0) {
+// //         continue;
+// //     } else {
+// //         console.log(i);
+// //     }
+// // }
+//
+// function fourthTask() {
+//     debugger
+//     let i = 2;
+//     while (i <= 16) {
+//         if (i % 2 === 1) {
+//             console.log(i);
+//         }
+//         i++;
+//     }
+// }
+// fourthTask()
+// // Место для пятой задачи
+//
+// function fifthTask() {
+//     const arrayOfNumbers = [];
+//     for (let i = 0; i <=5 ; i++) {
+//         arrayOfNumbers[i]=i+5
+//     }
+//     // Не трогаем
+//     return arrayOfNumbers;
+// }
+
+// //lesson 23
+//
+// first: for (let i = 0; i < 3; i++) {
+//     console.log('First level: ' + i);
+//     for (let j = 0; j < 3; j++) {
+//         console.log('Second level: ' + j);
+//         for (let k = 0; k < 3; k++) {
+//             if (k === 2) continue first
+//             console.log('third level: ' + k);
+//
+//         }
+//     }
+// }
+// // for (let i = 0; i < 3; i++) {
+//     console.log(i);
+//     for (let j = 0; j < 3; j++) {
+//         console.log(j);
+//      }
+// }
+// let star = '';
+// const length = 7;
+// for (let i = 1; i <= length; i++) {
+//     for (let j = 0; j <i ; j++) {
+//     star += '*';
+//     }
+//     star+="\n"
+// }
+// console.log(star);
+// // //lesson 22
+// let num = 50;
 // while (num <=55){
 //     console.log(num);
 //     num++
@@ -10,27 +164,13 @@ let num =50
 //     console.log(num);
 //     num++
 // }
-// while (num <=55)
-for (let i = 1; i < 10; i++) {
-    if(i===6){
-        break
-    }
-    console.log(i);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// // while (num <=55)
+// for (let i = 1; i < 10; i++) {
+//     if (i === 6) {
+//         break;
+//     }
+//     console.log(i);
+// }
 
 
 // //lesson 21
