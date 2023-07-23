@@ -1,39 +1,73 @@
 'use strict';
-//lesson 21
-
-
-const hamburger=0
-const fries=0,
-    cola=0,
-    nuggets=2
-
-if (hamburger===3&&cola===2||fries===3 && nuggets ){
-    console.log("I am full");
+// //lesson 22
+let num =50
+// while (num <=55){
+//     console.log(num);
+//     num++
+// }
+//
+// do{
+//     console.log(num);
+//     num++
+// }
+// while (num <=55)
+for (let i = 1; i < 10; i++) {
+    if(i===6){
+        break
+    }
+    console.log(i);
 }
 
 
-console.log( NaN || 2 || undefined );
 
 
-console.log( NaN && 2 && undefined );
 
 
-console.log( 1 && 2 && 3 );
 
 
-console.log( !1 && 2 || !3 );
 
 
-console.log( 25 || null && !3 );
 
 
-console.log( NaN || null || !3 || undefined || 5);
 
 
-console.log( NaN || null && !3 && undefined || 5);
 
 
-console.log( 5 === 5 && 3 > 1 || 5);
+// //lesson 21
+//
+//
+// const hamburger=0
+// const fries=0,
+//     cola=0,
+//     nuggets=2
+//
+// if (hamburger===3&&cola===2||fries===3 && nuggets ){
+//     console.log("I am full");
+// }
+//
+//
+// console.log( NaN || 2 || undefined );
+//
+//
+// console.log( NaN && 2 && undefined );
+//
+//
+// console.log( 1 && 2 && 3 );
+//
+//
+// console.log( !1 && 2 || !3 );
+//
+//
+// console.log( 25 || null && !3 );
+//
+//
+// console.log( NaN || null || !3 || undefined || 5);
+//
+//
+// console.log( NaN || null && !3 && undefined || 5);
+//
+//
+// console.log( 5 === 5 && 3 > 1 || 5);
 
 // const hamburger=true
 // const fries=true
