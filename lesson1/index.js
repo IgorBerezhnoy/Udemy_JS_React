@@ -1,20 +1,56 @@
 'use strict';
 
-//Task3
-const lines = 5;
-let result = '';
-// Проверяется именно переменная result, формируйте строку в ней
-for (let i = 1; i <=lines+1 ; i++) {
-    for (let j = 0; j <i ; j++) {
-    result+="*"
-        for (let k = 0; k < j; k++) {
-    result+="*"
-break
-        }
+// task 24
+let numberOfFilms = +prompt('How many did you watch movies?');
+
+let personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+
+// personalMovieDB.movies={[yourAnswer]:yourAnswer2}
+// for (let i = 0; i < 1; i++) {
+//     let nameMove = [prompt('What movies did you watch last time?')];
+//     let balls = prompt('how many balls did you want to get?');
+//     if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0)  {
+//         personalMovieDB.movies[nameMove] = balls;
+//     } else {
+//         console.log("error");
+//         i--
+//     }
+// }
+    if (personalMovieDB.count<10){
+        console.log("Посмотрено довольно мало фильмов");
+    }else if(personalMovieDB.count>=10&&personalMovieDB.count<=30){
+        console.log("Вы киноман");
+    }else {
+        console.log("error 404");
     }
-    result+="\n"
-}
-console.log(result);
+// personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+// personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+
+
+console.log(personalMovieDB);
+
+// //Task3
+// const lines = 5;
+// let result = '';
+// // Проверяется именно переменная result, формируйте строку в ней
+// for (let i = 1; i <=lines+1 ; i++) {
+//     for (let j = 0; j <i ; j++) {
+//     result+="*"
+//         for (let k = 0; k < j; k++) {
+//     result+="*"
+// break
+//         }
+//     }
+//     result+="\n"
+// }
+// console.log(result);
 
 //task 2
 // // Место для первой задачи
