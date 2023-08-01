@@ -1,40 +1,117 @@
 'use strict';
 
-// task 24
-let numberOfFilms = +prompt('How many did you watch movies?');
+// // task 27
 
-let personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
-
-// personalMovieDB.movies={[yourAnswer]:yourAnswer2}
-// for (let i = 0; i < 1; i++) {
-//     let nameMove = [prompt('What movies did you watch last time?')];
-//     let balls = prompt('how many balls did you want to get?');
-//     if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0)  {
-//         personalMovieDB.movies[nameMove] = balls;
-//     } else {
-//         console.log("error");
-//         i--
-//     }
+// const usdCurr=28
+// const discount=0.9
+//
+// function convert(amount,curr){
+// return (curr*amount)
 // }
-    if (personalMovieDB.count<10){
-        console.log("Посмотрено довольно мало фильмов");
-    }else if(personalMovieDB.count>=10&&personalMovieDB.count<=30){
-        console.log("Вы киноман");
-    }else {
-        console.log("error 404");
-    }
-// personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
-// personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+// function promotion(result){
+//     console.log(result*discount)
+// }
+// promotion(convert(500,usdCurr))
+
+// const test = () => {
+//     for (let i = 0; i < 5; i++) {
+//         console.log(i);
+//         if (i === 3) return;
+//     }
+//     console.log("Done");
+// };
+// test()
 
 
-console.log(personalMovieDB);
+function doNothing(){}
+
+console.log(doNothing()===undefined);
+// // // task 26
+//
+// const usdCurr=28
+// const eurCurr=32
+//
+// function convert(amount,curr){
+//     console.log(curr*amount)
+// }
+// convert(500,usdCurr)
+// convert(500,eurCurr)
+
+
+// // task 25
+// const calc=(a,b)=>a+b
+// console.log(calc(5, 5));
+
+// const logger=function (){
+//     console.log("Hello");
+// }
+// logger()
+//
+//
+// const calc = (a,b) => {
+// return a+b
+// }
+// const calc1 = () => {
+// let num =50
+//     return num
+// }
+// console.log(calc(4,2))
+// console.log(calc1())
+
+
+// let num =20
+//
+// function showFirstMessage(text){
+//     console.log(text);
+//     let num =222
+//     console.log(num+1);
+// }
+//
+// // const showFirstMessage1=()=>{
+// //     console.log("Hello");
+// //
+// // }
+// showFirstMessage("text")
+// console.log(num+1);
+// // showFirstMessage1()
+//
+
+
+// // task 24
+// let numberOfFilms = +prompt('How many did you watch movies?');
+//
+// let personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+//
+//
+// // personalMovieDB.movies={[yourAnswer]:yourAnswer2}
+// // for (let i = 0; i < 1; i++) {
+// //     let nameMove = [prompt('What movies did you watch last time?')];
+// //     let balls = prompt('how many balls did you want to get?');
+// //     if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0)  {
+// //         personalMovieDB.movies[nameMove] = balls;
+// //     } else {
+// //         console.log("error");
+// //         i--
+// //     }
+// // }
+//     if (personalMovieDB.count<10){
+//         console.log("Посмотрено довольно мало фильмов");
+//     }else if(personalMovieDB.count>=10&&personalMovieDB.count<=30){
+//         console.log("Вы киноман");
+//     }else {
+//         console.log("error 404");
+//     }
+// // personalMovieDB.movies[prompt('What movies did you watch last time?')] = prompt('how many balls did you want to get?');
+// // personalMovieDB.movies.logan=prompt("how many balls did you want to get?")
+//
+//
+// console.log(personalMovieDB);
 
 // //Task3
 // const lines = 5;
