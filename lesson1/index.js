@@ -1,5 +1,51 @@
 'use strict';
 
+// // // task 28
+// // // task 28
+//
+// const num=12.7
+// console.log(Math.round(num));
+//
+//
+// const test="12.7px"
+// console.log(parseInt(test))
+// console.log(parseFloat(test))
+//
+//
+//
+// // const fruit="some fruit"
+//
+// console.log(fruit.indexOf(""));
+//
+//
+// const logg="Hello world"
+// console.log(logg.slice(6));
+//
+// console.log(logg.substr(6,11));
+
+// // Место для первой задачи
+// function sayHello(name) {
+//     return `Привет, ${name}!`;
+// }
+//
+// // Место для второй задачи
+// function returnNeighboringNumbers(num) {
+//     return [num - 1, num, num + 1];
+// }
+//
+// // Место для третьей задачи
+// function getMathResult(baseNum, secondNum) {
+//     if (secondNum <= 0 || typeof secondNum === 'string') {
+//         return baseNum;
+//     }
+//     let str = `${baseNum}`;
+//     for (let i = 2; i <= secondNum; i++) {
+//         str += `---${baseNum *  i}`;
+//     }
+//     return str;
+// }
+
+
 // // task 27
 
 // const usdCurr=28
@@ -18,16 +64,16 @@
 //         console.log(i);
 //         if (i === 3) return;
 //     }
-//     console.log("Done");
-// };
-// test()
-
-
-function doNothing(){}
-
-console.log(doNothing()===undefined);
-// // // task 26
+// //     console.log("Done");
+// // };
+// // test()
 //
+//
+// function doNothing(){}
+//
+// console.log(doNothing()===undefined);
+// // // // task 26
+// //
 // const usdCurr=28
 // const eurCurr=32
 //
