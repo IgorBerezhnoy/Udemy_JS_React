@@ -1,6 +1,148 @@
 'use strict';
 
-// // // task 28
+// // // task 29
+
+// function fib(num) {
+// if (typeof num!=="number"||num<=0|| !Number.isInteger(num)){
+//     return""
+// }
+// if (num===1){
+//     return "0"
+// }
+// let arrFib=[0, 1]
+//     for (let i = 2; i <num ; i++) {
+//         arrFib.push(arrFib[arrFib.length-2]+arrFib[arrFib.length-1])
+//     }
+//     return arrFib.join(" ")
+// }
+
+
+// // Место для первой задачи
+// function getTimeFromMinutes(minutes) {
+//     if (minutes <= -1 || isNaN(minutes) || !Number.isInteger(minutes)) {
+//         return 'Ошибка, проверьте данные';
+//     }
+//     let hours = minutes / 60;
+//     let rightMinutes = Math.round((hours * 60) - (Math.floor(minutes / 60) * 60));
+//     hours = Math.floor(minutes / 60);
+//     if (hours === 0 || hours >= 5) {
+//         return `Это ${hours} часов и ${rightMinutes} минут`;
+//     } else if (hours === 1) {
+//         return `Это ${hours} час и ${rightMinutes} минут`;
+//     } else {
+//         return `Это ${hours} часа и ${rightMinutes} минут`;
+//     }
+// }
+//
+// // Место для второй задачи
+// function findMaxNumber(one, two, three, four) {
+//
+//     if  (typeof(one)!=='number' || typeof(two)!=='number' ||typeof(three)!=='number' || typeof(four)!=='number') {
+//     return 0
+//     }
+//     return Math.max(one,two,three,four)
+// }
+//
+// console.log(findMaxNumber(1, 5, '6', '10'))
+// // Место для первой задачи
+// function calculateVolumeAndArea(num) {
+//     if (num <= 0 || isNaN(num) || !Number.isInteger(num)) {
+//         return 'При вычислении произошла ошибка';
+//     }
+//     return `Объем куба: ${num * num * num}, площадь всей поверхности: ${6 * num * num}`;
+// }
+//
+// // Место для второй задачи
+// function getCoupeNumber(num) {
+//     if (num === 0  ||num>36) {
+//         return 'Таких мест в вагоне не существует';
+//     }else if (num <= 0||!Number.isInteger(num)|| isNaN(num)){
+//         return "Ошибка. Проверьте правильность введенного номера места"
+//     }
+// return Math.ceil (num/4)
+// }
+
+
+// /* Задание на урок:
+//
+// 1) Первую часть задания повторить по уроку
+//
+// 2) Создать функцию showMyDB, которая будет проверять свойство privat. Если стоит в позиции
+// false - выводит в консоль главный объект программы
+//
+// 3) Создать функцию writeYourGenres в которой пользователь будет 3 раза отвечать на вопрос
+// "Ваш любимый жанр под номером ${номер по порядку}". Каждый ответ записывается в массив данных
+// genres
+//
+// P.S. Функции вызывать не обязательно*/
+//
+// 'use strict';
+//
+// // Код возьмите из предыдущего домашнего задания
+//
+// //--------------------------------------------------
+// let numberOfFilms;
+//
+//
+// function start() {
+//     numberOfFilms = (+prompt('How many did you watch movies?'));
+//
+//     while (numberOfFilms.trim() == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+//         numberOfFilms = +prompt('How many did you watch movies?');
+//     }
+// }
+//
+// start();
+//
+// let personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+//
+// function rememberMyFilms() {
+//     for (let i = 0; i < 1; i++) {
+//         let nameMove = [prompt('What movies did you watch last time?')];
+//         let balls = prompt('how many balls did you want to get?');
+//         if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0) {
+//             personalMovieDB.movies[nameMove] = balls;
+//         } else {
+//             console.log('error');
+//             i--;
+//         }
+//     }
+// }
+//
+// function detectPersonalLevel() {
+//     if (personalMovieDB.count < 10) {
+//         console.log('Посмотрено довольно мало фильмов');
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+//         console.log('Вы киноман');
+//     } else {
+//         console.log('error 404');
+//     }
+// }
+//
+// detectPersonalLevel();
+//
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+//     }
+// }
+//
+// writeYourGenres();
+//
+// function showMyDB(obj) {
+//     if (!obj) {
+//         console.log(personalMovieDB);
+//     }
+// }
+//
+// showMyDB(personalMovieDB.privat);
+// //--------------------------------------------------
 // // // task 28
 //
 // const num=12.7
