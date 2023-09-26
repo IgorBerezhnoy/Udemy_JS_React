@@ -1,42 +1,75 @@
 'use strict';
+// //lesson 34
+
+
+
+
+
+
+
+
+// //lesson 33
+//
+// const arr = [1, 3, 4, 5, 6, 7, 8];
+// arr.sort((a, b) => a - b);
+// arr.pop();
+// arr.push(10);
+// console.log(arr);
+
+
+// const str= prompt("", "")
+// const prodects=str.split(", ")
+// console.log(prodects.join(", "));
+//
+// // for (let i =0; i<arr.length;i++){
+// //     console.log(arr[i])
+// // }
+// arr.forEach((el,i , arr)=>{
+//     console.log(`${i}: ${el} внутри масива ${arr}`);
+// })
+
+//TODO
+// for (let value of arr){
+//     console.log(value);
+// }
+
 
 // lesson 32
-
 // const obj=new Object()
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bj: 'red'
-    },
-    makeTest(){
-        console.log("Test");
-    }
-};
-// console.log(options.name);
-//
-// delete options.name;
-//
-// console.log(options);
-// TODO
-for (let key in options) {
-    let counter=0
-    if (typeof options[key] === 'object') {
-        for (let i in options[key]) {
-            console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-            counter++
-        }
-    } else {
-        console.log(`Свойство ${key} имеет значение ${options[key]}`);
-        counter++
-    }
-}
-options.makeTest()
-console.log(Object.keys(options).length)
-let {colors, height}=options
-console.log(colors, height);
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bj: 'red'
+//     },
+//     makeTest(){
+//         console.log("Test");
+//     }
+// };
+// // console.log(options.name);
+// //
+// // delete options.name;
+// //
+// // console.log(options);
+// // TODO
+// for (let key in options) {
+//     let counter=0
+//     if (typeof options[key] === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//             counter++
+//         }
+//     } else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//         counter++
+//     }
+// }
+// options.makeTest()
+// console.log(Object.keys(options).length)
+// let {colors, height}=options
+// console.log(colors, height);
 // // // task 31
 //
 //
