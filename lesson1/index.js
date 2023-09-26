@@ -1,12 +1,55 @@
 'use strict';
 // //lesson 34
+//
+// let a = 5,
+//     b = a;
+// b = b + 5;
+// console.log(a);
+// console.log(b);
+//
+// const obj = {
+//     a: 5,
+//     b: 1
+// };
+//
+// let copy = obj;
+// copy.a = 100;
+//
+// console.log(copy);
+// console.log(obj);
 
+const copy = (mainObj) => {
+    let copyObj = {};
+    let key;
+    for (key in mainObj) {
+        copyObj[key] = mainObj[key];
+    }
+    return copyObj;
+};
+const numbers = {
+    a: 2,
+    b: 3,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
+const newNumbers=copy(numbers)
+console.log(newNumbers);
+console.log(newNumbers===numbers);
+console.log(newNumbers.c===numbers.c);
 
-
-
-
-
-
+const add={
+    d:17,
+    e:20,
+    j:{
+        o:3
+    }
+}
+let clone = Object.assign({}, add);
+console.log(clone);
+console.log(clone===add);
+console.log(clone.j===add.j);
 
 // //lesson 33
 //
