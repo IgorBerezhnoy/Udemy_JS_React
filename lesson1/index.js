@@ -1,5 +1,98 @@
 'use strict';
-// //lesson 34
+
+
+// //lesson #35.3
+
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+    if (typeof str === 'string') {
+        let reverseString = '';
+        for (let i = 1; i <= str.length; i++) {
+            reverseString += str[str.length - i];
+        }
+        return reverseString;
+    } else {
+        return 'Ошибка!';
+    }
+}
+
+console.log(reverse(someString));
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+
+    let str = '';
+    arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+
+    arr.forEach(function(curr, i) {
+        if (curr !== missingCurr) {
+            str += `${curr}\n`;
+        }
+    });
+    return str
+}
+
+availableCurr(['UAH', 'RUB', 'CNY'], 'CNY')
+// //lesson #35.2
+//
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+//
+// function showFamily(arr) {
+//     if (arr.length) {
+//         return `Семья состоит из: ${arr.join(' ')}`;
+//     }else {
+//         return 'Семья пуста'
+//     }
+// }
+//
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+//
+// function standardizeStrings(arr) {
+// (arr.map(el=>console.log(el.toLowerCase())))
+// }
+//
+// console.log(standardizeStrings(family));
+
+// //lesson #35.1
+//
+// const personalPlanPeter = {
+//     name: 'Peter',
+//     showAgeAndLangs(personalPlanPeter) {
+//         return `Мне ${personalPlanPeter.age} и я владею языками: ${personalPlanPeter.skills.languages[0].toUpperCase()} ${personalPlanPeter.skills.languages[1].toUpperCase()}`;
+//     },
+//     age: '29',
+//     skills: {
+//         languages: ['ru', 'eng'],
+//         programmingLangs: {
+//             js: '20%',
+//             php: '10%'
+//         },
+//         exp: '1 month'
+//     }
+// };
+//
+// function showExperience(plan) {
+//     return plan.skills.exp;
+// }
+//
+// function showProgrammingLangs(plan) {
+//
+//     if (!plan.skills.programmingLangs) {
+//         return '';
+//     }
+//     let str = '';
+//     for (let key in plan.skills.programmingLangs) {
+//         str += `Язык ${key} изучен на ${plan.skills.programmingLangs[key]}\n`;
+//     }
+//     return str.slice(0, str.length - 1);
+// }
+//
+// console.log(showProgrammingLangs(personalPlanPeter));
+
+// //lesson 35
 //
 // let a = 5,
 //     b = a;
@@ -17,41 +110,69 @@
 //
 // console.log(copy);
 // console.log(obj);
+//
+// const copy = (mainObj) => {
+//     let copyObj = {};
+//     let key;
+//     for (key in mainObj) {
+//         copyObj[key] = mainObj[key];
+//     }
+//     return copyObj;
+// };
+// const numbers = {
+//     a: 2,
+//     b: 3,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// };
+// const newNumbers=copy(numbers)
+// console.log(newNumbers);
+// console.log(newNumbers===numbers);
+// console.log(newNumbers.c===numbers.c);
+//
+// const add={
+//     d:17,
+//     e:20,
+//     j:{
+//         o:3
+//     }
+// }
+// //TODO Object.assign({})
+// let clone = Object.assign({}, add);
+// console.log(clone);
+// console.log(clone===add);
+// console.log(clone.j===add.j);
+//
+// let oldArr=["a","b","c"]
+// let newArr=oldArr.slice()
+// console.log(oldArr===newArr);
+//
+// const video=["youtube","vimeo","rutube"],
+//     blogs=["wordpress", "liveJournal"],
+//     internet=[...video,...blogs, "vk"]
+// console.log(internet);
+//
+// function log(a,b,c) {
+//  console.log(a)
+//  console.log(b)
+//  console.log(c)
+// }
+//
+// const num=[2,3,4]
+// log(...num);
+// const array = ['a', 'b'];
+// const newArray = [...array];
+//
+// const q = {
+//     one: 1,
+//     two: 2
+// };
+// const newObj = {...q};
+//
 
-const copy = (mainObj) => {
-    let copyObj = {};
-    let key;
-    for (key in mainObj) {
-        copyObj[key] = mainObj[key];
-    }
-    return copyObj;
-};
-const numbers = {
-    a: 2,
-    b: 3,
-    c: {
-        x: 7,
-        y: 4
-    }
-};
-const newNumbers=copy(numbers)
-console.log(newNumbers);
-console.log(newNumbers===numbers);
-console.log(newNumbers.c===numbers.c);
-
-const add={
-    d:17,
-    e:20,
-    j:{
-        o:3
-    }
-}
-let clone = Object.assign({}, add);
-console.log(clone);
-console.log(clone===add);
-console.log(clone.j===add.j);
-
-// //lesson 33
+/// //lesson 33
 //
 // const arr = [1, 3, 4, 5, 6, 7, 8];
 // arr.sort((a, b) => a - b);
@@ -96,8 +217,8 @@ console.log(clone.j===add.j);
 // // delete options.name;
 // //
 // // console.log(options);
-// // TODO
-// for (let key in options) {
+//  TODO
+//  for (let key in options) {
 //     let counter=0
 //     if (typeof options[key] === 'object') {
 //         for (let i in options[key]) {
