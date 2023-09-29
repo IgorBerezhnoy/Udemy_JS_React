@@ -1,41 +1,71 @@
 'use strict';
 
 
+// //lesson #36
+
+
+// // let str = 'some';
+// // let strObj = new String(str);
+// // console.log(typeof str);
+// // console.log(typeof strObj);
+// //
+// // console.dir([1, 2, 3, 4]);
+//
+// const solider = {
+//     health: 400,
+//     armor: 100,
+//     sayHello(){
+//         console.log("hello");
+//     }
+// };
+//
+// const jonh=Object.create(solider)
+// // const jonh = {
+// //     health: 100
+// // };
+// //
+// // // jonh.__proto__ = solider;
+// // Object.setPrototypeOf(jonh,solider)
+// //
+// // console.log(jonh.armor);
+// jonh.sayHello()
+// //
+
 // //lesson #35.3
 
-
-const someString = 'This is some strange string';
-
-function reverse(str) {
-    if (typeof str === 'string') {
-        let reverseString = '';
-        for (let i = 1; i <= str.length; i++) {
-            reverseString += str[str.length - i];
-        }
-        return reverseString;
-    } else {
-        return 'Ошибка!';
-    }
-}
-
-console.log(reverse(someString));
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
-
-function availableCurr(arr, missingCurr) {
-
-    let str = '';
-    arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
-
-    arr.forEach(function(curr, i) {
-        if (curr !== missingCurr) {
-            str += `${curr}\n`;
-        }
-    });
-    return str
-}
-
-availableCurr(['UAH', 'RUB', 'CNY'], 'CNY')
+//
+// const someString = 'This is some strange string';
+//
+// function reverse(str) {
+//     if (typeof str === 'string') {
+//         let reverseString = '';
+//         for (let i = 1; i <= str.length; i++) {
+//             reverseString += str[str.length - i];
+//         }
+//         return reverseString;
+//     } else {
+//         return 'Ошибка!';
+//     }
+// }
+//
+// console.log(reverse(someString));
+// const baseCurrencies = ['USD', 'EUR'];
+// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+//
+// function availableCurr(arr, missingCurr) {
+//
+//     let str = '';
+//     arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+//
+//     arr.forEach(function(curr, i) {
+//         if (curr !== missingCurr) {
+//             str += `${curr}\n`;
+//         }
+//     });
+//     return str
+// }
+//
+// availableCurr(['UAH', 'RUB', 'CNY'], 'CNY')
 // //lesson #35.2
 //
 // const family = ['Peter', 'Ann', 'Alex', 'Linda'];
