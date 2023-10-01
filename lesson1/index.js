@@ -1,6 +1,148 @@
 'use strict';
 
 
+// //lesson #37
+//--------------------------------------------------
+
+let personalMovieDB = {
+    count: '',
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start() {
+        this.count = (+prompt('How many did you watch movies?'));
+        while (/*this.count.trim() == '' ||*/ this.count == null || isNaN(this.count)) {
+            this.count = (+prompt('How many did you watch movies?'));
+        }
+    },
+    rememberMyFilms() {
+        for (let i = 0; i < 1; i++) {
+            let nameMove = [prompt('What movies did you watch last time?')];
+            let balls = prompt('how many balls did you want to get?');
+            if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0) {
+                this.movies[nameMove] = balls;
+            } else {
+                console.log('error');
+                i--;
+            }
+        }
+    },
+    detectPersonalLevel() {
+        if (this.count < 10) {
+            console.log('Посмотрено довольно мало фильмов');
+        } else if (this.count >= 10 && this.count <= 30) {
+            console.log('Вы киноман');
+        } else {
+            console.log('error 404');
+        }
+    },
+    writeYourGenres() {
+        for (let i = 1; i <= 3; i++) {
+            this.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+            if (this.genres[i - 1] === null || this.genres[i - 1] === undefined || this.genres[i - 1].trim() === "") {
+                alert("Вы вели некорректные данные")
+                this.genres.pop();
+                i--;
+            }
+            if (i===3){
+                this.genres.forEach((el, i)=>{
+                    console.log(`Любимый жанр #${i+1} это ${el}` );
+                })
+            }
+        }
+    },
+    showMyDB() {
+        if (this.privat) {
+            console.log(this);
+        }
+    },
+    toggleVisibleMyDB() {
+        this.privat = !this.privat;
+    }
+};
+// personalMovieDB.start()
+// personalMovieDB.rememberMyFilms()
+// personalMovieDB.detectPersonalLevel()
+// personalMovieDB.writeYourGenres()
+personalMovieDB.writeYourGenres()
+// personalMovieDB.writeYourGenres();
+console.log(personalMovieDB.privat);
+personalMovieDB.showMyDB();
+console.log(personalMovieDB.privat);
+
+personalMovieDB.toggleVisibleMyDB();
+console.log(personalMovieDB.privat);
+
+personalMovieDB.showMyDB();
+
+//--------------------------------------------------
+// let numberOfFilms;
+//
+//
+// function start() {
+//     numberOfFilms = (+prompt('How many did you watch movies?'));
+//
+//     while (numberOfFilms.trim() == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+//         numberOfFilms = +prompt('How many did you watch movies?');
+//     }
+// }
+//
+// start();
+//
+// let personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+//
+// function rememberMyFilms() {
+//     for (let i = 0; i < 1; i++) {
+//         let nameMove = [prompt('What movies did you watch last time?')];
+//         let balls = prompt('how many balls did you want to get?');
+//         if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0) {
+//             personalMovieDB.movies[nameMove] = balls;
+//         } else {
+//             console.log('error');
+//             i--;
+//         }
+//     }
+// }
+//
+// function detectPersonalLevel() {
+//     if (personalMovieDB.count < 10) {
+//         console.log('Посмотрено довольно мало фильмов');
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+//         console.log('Вы киноман');
+//     } else {
+//         console.log('error 404');
+//     }
+// }
+//
+// detectPersonalLevel();
+//
+// function writeYourGenres() {
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+//     }
+// }
+//
+// writeYourGenres();
+//
+// function showMyDB(obj) {
+//     if (!obj) {
+//         console.log(personalMovieDB);
+//     }
+// }
+//
+// showMyDB(personalMovieDB.privat);
+// //--------------------------------------------------
+
+// //--------------------------------------------------
+
+
 // //lesson #36
 
 
