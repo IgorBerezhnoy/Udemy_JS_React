@@ -1,6 +1,24 @@
 'use strict';
 
 
+// //lessons #38-39
+
+console.log(typeof (String(null)));
+console.log( (String(5+"5"+null)));
+console.log( typeof (String(5+"5"+null)));
+
+
+
+
+
+
+
+
+
+
+
+
+
 // //task #37.2
 
 //
