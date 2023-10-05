@@ -1,23 +1,50 @@
 'use strict';
 
 
+// //lessons #40 замыкание и лексическое окружение
+
+// let number = 5;
+//
+// function logNumber() {
+//     console.log(number);
+//
+// }
+//
+// number = 6;
+//
+// logNumber();
+// let counter = 5;
+// const createCounter = () => {
+//     let counter = 0;
+//       return function () {
+//         counter = counter + 1;
+//         return counter;
+//     };
+// };
+// counter = 7;
+//
+// let increment = createCounter();
+// let c1 = increment();
+// let c2 = increment();
+// let c3 = increment();
+// console.log(c1, c2, c3);
+
 // //lessons #38-39
+//
+// console.log(typeof (String(null)));
+// console.log((String(5 + '5' + null)));
+// console.log(typeof (String(5 + '5' + null)));
+// console.log('https://vk.com/catalog/' + 5);
+// const fontSize = 26 + 'px'
+//
+//
+// console.log(typeof (Number('5')));
+// console.log(typeof (+'5'));
+// console.log(typeof (parseInt('5px',10)));
+//
+//
 
-console.log(typeof (String(null)));
-console.log( (String(5+"5"+null)));
-console.log( typeof (String(5+"5"+null)));
-
-
-
-
-
-
-
-
-
-
-
-
+// let answer=+prompt("hello", "")
 
 // //task #37.2
 
