@@ -1,80 +1,159 @@
 'use strict';
 
 
+// //task #37.2
+
+//
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi'];
+//
+// function sortStudentsByGroups(arr) {
+//     debugger
+//     let newArr = [];
+//     let arrForWork = [];
+//     let count = 0;
+//     let str = 'Оставшиеся студенты: ';
+//     arr.sort();
+//     for (let i = 0; i <= arr.length; i++) {
+//         if (count !== 3) {
+//             arrForWork.push(arr[i]);
+//             ++count;
+//         } else {
+//             count = 0;
+//             newArr.push(arrForWork);
+//             arrForWork = [];
+//             i--;
+//         }
+//     }
+//     if (arr.length === 9) {
+//         newArr.push(str + '-');
+//     }else if (arr.length===10){
+//         newArr.push(str + arr[9]);
+//     }else {
+//         newArr.push(str + arr[9]+", "+arr[10]);
+//
+//     }
+// return newArr
+// }
+//
+// console.log(sortStudentsByGroups(students));
+
+
+// //task #37.1
+//
+// const shoppingMallData = {
+//     shops: [
+//         {
+//             width: 10,
+//             length: 5
+//         },
+//         {
+//             width: 15,
+//             length: 7
+//         },
+//         {
+//             width: 20,
+//             length: 5
+//         },
+//         {
+//             width: 8,
+//             length: 10
+//         }
+//     ],
+//     height: 5,
+//     moneyPer1m3: 30,
+//     budget: 50000
+// };
+//
+// function isBudgetEnough(data) {
+//     let allPl = 0;
+//     for (let i = 0; i < data.shops.length; i++) {
+//         allPl += (data.shops[i].length * data.shops[i].width);
+//
+//     }
+//     allPl *= data.height * data.moneyPer1m3;
+//     if (allPl <= data.budget) {
+//         return 'Бюджета достаточно';
+//     } else {
+//         return 'Бюджета недостаточно';
+//     }
+// }
+//
+// console.log(isBudgetEnough(shoppingMallData))
+
 // //lesson #37
 //--------------------------------------------------
 
-let personalMovieDB = {
-    count: '',
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start() {
-        this.count = (+prompt('How many did you watch movies?'));
-        while (/*this.count.trim() == '' ||*/ this.count == null || isNaN(this.count)) {
-            this.count = (+prompt('How many did you watch movies?'));
-        }
-    },
-    rememberMyFilms() {
-        for (let i = 0; i < 1; i++) {
-            let nameMove = [prompt('What movies did you watch last time?')];
-            let balls = prompt('how many balls did you want to get?');
-            if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0) {
-                this.movies[nameMove] = balls;
-            } else {
-                console.log('error');
-                i--;
-            }
-        }
-    },
-    detectPersonalLevel() {
-        if (this.count < 10) {
-            console.log('Посмотрено довольно мало фильмов');
-        } else if (this.count >= 10 && this.count <= 30) {
-            console.log('Вы киноман');
-        } else {
-            console.log('error 404');
-        }
-    },
-    writeYourGenres() {
-        for (let i = 1; i <= 3; i++) {
-            this.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
-            if (this.genres[i - 1] === null || this.genres[i - 1] === undefined || this.genres[i - 1].trim() === "") {
-                alert("Вы вели некорректные данные")
-                this.genres.pop();
-                i--;
-            }
-            if (i===3){
-                this.genres.forEach((el, i)=>{
-                    console.log(`Любимый жанр #${i+1} это ${el}` );
-                })
-            }
-        }
-    },
-    showMyDB() {
-        if (this.privat) {
-            console.log(this);
-        }
-    },
-    toggleVisibleMyDB() {
-        this.privat = !this.privat;
-    }
-};
-// personalMovieDB.start()
-// personalMovieDB.rememberMyFilms()
-// personalMovieDB.detectPersonalLevel()
+// let personalMovieDB = {
+//     count: '',
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start() {
+//         this.count = (+prompt('How many did you watch movies?'));
+//         while (/*this.count.trim() == '' ||*/ this.count == null || isNaN(this.count)) {
+//             this.count = (+prompt('How many did you watch movies?'));
+//         }
+//     },
+//     rememberMyFilms() {
+//         for (let i = 0; i < 1; i++) {
+//             let nameMove = [prompt('What movies did you watch last time?')];
+//             let balls = prompt('how many balls did you want to get?');
+//             if (nameMove.length > 0 && nameMove.length < 50 && balls.length < 50 && balls.length !== 0) {
+//                 this.movies[nameMove] = balls;
+//             } else {
+//                 console.log('error');
+//                 i--;
+//             }
+//         }
+//     },
+//     detectPersonalLevel() {
+//         if (this.count < 10) {
+//             console.log('Посмотрено довольно мало фильмов');
+//         } else if (this.count >= 10 && this.count <= 30) {
+//             console.log('Вы киноман');
+//         } else {
+//             console.log('error 404');
+//         }
+//     },
+//     writeYourGenres() {
+//         for (let i = 1; i <= 3; i++) {
+//             this.genres.push(prompt(`Ваш любимый жанр под номером ${i}`));
+//             if (this.genres[i - 1] === null || this.genres[i - 1] === undefined || this.genres[i - 1].trim() === "") {
+//                 alert("Вы вели некорректные данные")
+//                 this.genres.pop();
+//                 i--;
+//             }
+//             if (i===3){
+//                 this.genres.forEach((el, i)=>{
+//                     console.log(`Любимый жанр #${i+1} это ${el}` );
+//                 })
+//             }
+//         }
+//     },
+//     showMyDB() {
+//         if (this.privat) {
+//             console.log(this);
+//         }
+//     },
+//     toggleVisibleMyDB() {
+//         this.privat = !this.privat;
+//     }
+// };
+// // personalMovieDB.start()
+// // personalMovieDB.rememberMyFilms()
+// // personalMovieDB.detectPersonalLevel()
+// // personalMovieDB.writeYourGenres()
 // personalMovieDB.writeYourGenres()
-personalMovieDB.writeYourGenres()
-// personalMovieDB.writeYourGenres();
-console.log(personalMovieDB.privat);
-personalMovieDB.showMyDB();
-console.log(personalMovieDB.privat);
-
-personalMovieDB.toggleVisibleMyDB();
-console.log(personalMovieDB.privat);
-
-personalMovieDB.showMyDB();
+// // personalMovieDB.writeYourGenres();
+// console.log(personalMovieDB.privat);
+// personalMovieDB.showMyDB();
+// console.log(personalMovieDB.privat);
+//
+// personalMovieDB.toggleVisibleMyDB();
+// console.log(personalMovieDB.privat);
+//
+// personalMovieDB.showMyDB();
 
 //--------------------------------------------------
 // let numberOfFilms;
