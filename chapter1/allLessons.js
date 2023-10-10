@@ -1,5 +1,109 @@
 'use strict';
 
+// //lessons #42
+
+// //task #41.1
+
+
+// const restorantData = {
+//     menu: [
+//         {
+//             name: 'Salad Caesar',
+//             price: '14$'
+//         },
+//         {
+//             name: 'Pizza Diavola',
+//             price: '9$'
+//         },
+//         {
+//             name: 'Beefsteak',
+//             price: '17$'
+//         },
+//         {
+//             name: 'Napoleon',
+//             price: '7$'
+//         }
+//     ],
+//     waitors: [
+//         {name: 'Alice', age: 22}, {name: 'John', age: 24}
+//     ],
+//     averageLunchPrice: '20$',
+//     openNow: true
+// };
+//
+// function isOpen(prop) {
+//     return prop ? 'Открыто':'Закрыто'
+// }
+//
+// console.log(+restorantData.menu[0].price.slice(0, -1))
+//
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//     debugger
+//     if ((+fDish.price.slice(0, -1)) + (+sDish.price.slice(0, -1)) <( average.slice(0, -1))) {
+//         return 'Цена ниже средней';
+//     } else {
+//         return 'Цена выше средней';
+//     }
+// }
+//
+// console.log(isAverageLunchPriceTrue(restorantData.menu[0], restorantData.menu[1], restorantData.averageLunchPrice));
+//
+// function transferWaitors(data) {
+//     const copy = Object.assign({}, data);
+// copy.waitors=[...copy.waitors]
+//     copy.waitors[0] = {name: 'Mike', age: 32};
+//     return copy;
+// }
+//
+// transferWaitors(restorantData);
+//
+
+
+
+// //lessons #41
+//
+// let x=5
+// console.log(x++) //5
+
+// console.log([]+false-null+true); //Nan
+
+// let y=1
+// let x=y=2
+// console.log(x) //2
+// ;
+
+// console.log([] + 1 + 2) //12
+
+// console.log([] + 1 + 2);
+
+// console.log(!!("a"&&"b"));
+// console.log(("a"&&"b"));
+// console.log(!!("a"&&"b")===("a"&&"b"));
+
+
+// console.log(2 && 1 && null && 0 && undefined);
+
+
+
+// console.log(null || 2 && 3 || 4);
+
+//
+// let a = [1, 2, 3],
+//     b = [1, 2, 3];
+//
+// console.log(a===b);
+
+
+
+// console.log(+"Infinity");
+
+
+// console.log("Ёжик">"яблоко");
+
+
+// console.log(0 || "" || 2 || undefined || true || false);
+
+
 
 // //lessons #40 замыкание и лексическое окружение
 
