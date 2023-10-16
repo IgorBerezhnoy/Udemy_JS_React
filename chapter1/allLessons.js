@@ -1,5 +1,159 @@
 'use strict';
 
+// //lessons #47 Рекурсия
+
+
+let students = {
+    js: [{
+        name: 'John',
+        progress: 100
+    }, {
+        name: 'Ivan',
+        progress: 60
+    }],
+    html: {
+        basic: [{
+            name: 'Peter',
+            progress: 20
+        }, {
+            name: 'Ann',
+            progress: 18
+        }],
+        pro: [{
+            name: 'Sam',
+            progress: 10
+        }]
+    }
+};
+
+let midlProgress = {
+    students: 0,
+    progress: 0
+};
+
+function geyTotalProgressByRecursion(data) {
+    if (Array.isArray(data)) {
+        let total = 0;
+        for (let i = 0; i < data.length; i++) {
+            total += data[i].progress;
+        }
+        return [total, data.length];
+    } else {
+        let total = [0, 0];
+        for (let subData of Object.values(data)) {
+            const subDataArr = geyTotalProgressByRecursion(subData);
+            total[0] += subDataArr[0];
+            total[1] += subDataArr[1];
+        }
+        return total;
+    }
+
+}
+
+let data = geyTotalProgressByRecursion(students);
+console.log(data[0]/data[1]);
+// function geyTotalProgressByIteration(data) {
+//     for (let course of Object.values(data)) {
+//         if (Array.isArray(course)) {
+//             course.forEach(el => {
+//                 midlProgress.progress += el.progress;
+//                 midlProgress.students++;
+//             });
+//         }else {
+//             for (let underGlobalCourses of Object.values(course)){
+//               underGlobalCourses.forEach(el=>{
+//                   midlProgress.progress += el.progress;
+//                   midlProgress.students++
+//               })
+//             }
+//         }
+//     }
+//     return midlProgress.progress / midlProgress.students;
+// }
+//
+// console.log(geyTotalProgressByIteration(students));
+// //
+// //
+// // let midlProgress= {
+// //     students:0,
+// //     progress:0
+// }
+//
+// for (let i=0; i<students.js.length; i++){
+//     midlProgress.students++
+//     midlProgress.progress+=students.js[i].progress
+// }
+// for (let i=0; i<students.html.basic.length; i++){
+//     midlProgress.students++
+//     midlProgress.progress+=students.html.basic[i].progress
+// }
+// for (let i=0; i<students.html.pro.length; i++){
+//     midlProgress.students++
+//     midlProgress.progress+=students.html.pro[i].progress
+// }
+// console.log(midlProgress.progress/midlProgress.students);
+
+// let arrOfTeh = Object.keys(students);
+// console.log(arrOfTeh);
+// debugger
+// for (let j = 0; j < arrOfTeh.length; j++) {
+//     for (let k = 0; k < arrOfTeh[j].length; k++) {
+//         console.log(students[arrOfTeh[j]][k])
+//         // console.log(students[arrOfTeh[j][k])
+//     }
+//
+// }
+
+// const pow = (x, y) => {
+//     let result = 1;
+//     for (let i = 0; i < y; i++) {
+//         result *= x;
+//     }
+//     console.log(result);
+// };
+// const pow = (x, n) => {
+//     if (n === 1) {
+//         return x;
+//     } else {
+//         return x * pow(x, n - 1);
+//     }
+// };
+//
+// console.log(pow(2, 1))
+// console.log(pow(2, 1))
+// console.log(pow(2, 2))
+// console.log(pow(2, 3))
+// console.log(pow(2, 4))
+//
+// console.log(pow(3, 1))
+// console.log(pow(3, 2))
+// console.log(pow(3, 3))
+// console.log(pow(3, 4))
+
+
+// //lessons #46
+// console.log(document.body.firstChild);
+// console.log(document.body.lastChild);
+// console.log(document.documentElement);
+// console.log(document.body);
+// console.log(document.head);
+// console.log(document.querySelector("#current").parentNode.parentNode);
+// console.log(document.querySelector("[data-current='3']").nextSibling);
+// console.log(document.querySelector("[data-current='3']").nextElementSibling);
+// console.log(document.querySelector("[data-current='3']").parentElement);
+
+//
+// for (let node of document.body.childNodes){
+//     if (node.nodeName=="#text"){
+//         continue
+//     }
+//     console.log(node)
+// }
+//
+//
+//
+
+
 // //lessons #45
 // const btn = document.querySelector('button');
 // const btns = document.querySelectorAll('button');
