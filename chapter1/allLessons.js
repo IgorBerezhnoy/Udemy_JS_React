@@ -1,5 +1,61 @@
 'use strict';
 
+// //lessons #45
+// const btn = document.querySelector('button');
+// const btns = document.querySelectorAll('button');
+// const overlay = document.querySelector('.overlay');
+//
+// btn.onclick=function () {
+//     alert("click")
+// }
+// btn.onclick=function () {
+//     alert("Second click")
+// }
+
+// btn.addEventListener("click", ()=>{
+//     alert("Click")
+// })
+// btn.addEventListener("click", (e)=>{
+//     console.log(e);
+//     e.target.remove()
+//     // console.log(e);
+//     // console.log("mouseenter")
+// })
+//
+// let i = 0;
+// let deleteElement = (e) => {
+//     // console.log(e.target);
+//
+//
+//     console.log('click');
+//     console.log(e.currentTarget);
+//
+//     // i++
+//     // if(i===1){
+//     //     btn.removeEventListener("click", deleteElement)
+//     // }
+//     // e.target.remove()
+//     // console.log(e);
+//     // console.log("mouseenter")
+// };
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement);
+//
+//
+// const link = document.querySelector('a');
+// link.addEventListener('click', function (e) {
+//     e.preventDefault()
+//     console.log(e.target);
+// });
+// let listeners = function (e) {
+//     e.preventDefault()
+//     console.log(e.target);
+// };
+// btns.forEach(el=>
+//     el.addEventListener('click', listeners, {once:true})
+// )
+
+
 // //lessons #42
 
 // //task #41.1
@@ -59,7 +115,6 @@
 //
 
 
-
 // //lessons #41
 //
 // let x=5
@@ -84,7 +139,6 @@
 // console.log(2 && 1 && null && 0 && undefined);
 
 
-
 // console.log(null || 2 && 3 || 4);
 
 //
@@ -94,7 +148,6 @@
 // console.log(a===b);
 
 
-
 // console.log(+"Infinity");
 
 
@@ -102,7 +155,6 @@
 
 
 // console.log(0 || "" || 2 || undefined || true || false);
-
 
 
 // //lessons #40 замыкание и лексическое окружение
