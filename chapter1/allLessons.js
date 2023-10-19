@@ -1,5 +1,45 @@
 'use strict';
 
+ //lessons #50
+
+const script=document.createElement("script")
+script.src="js/test.js"
+document.body.append(script)
+//
+//  //lessons #49
+// // touchstart
+// // touchmove
+// // touchend
+// // touchenter
+// window.addEventListener("DOMContentLoaded", ()=>{
+// const box=document.querySelector(".box")
+//     box.addEventListener("touchstart",(e)=>{
+//         e.preventDefault()
+//         console.log("start ");
+//     })
+//     box.addEventListener("touchmove",(e)=>{
+//         e.preventDefault()
+//         console.log("touchmove ");
+//     })
+//     box.addEventListener("touchend",(e)=>{
+//         e.preventDefault()
+//         console.log("touchmove ");
+//     })
+// })
+
+//touches
+//targetTouches
+//changedTouches
+
+
+
+
+
+
+
+
+
+
 // // //lessons #47 task
 //
 // function factorial(n) {
