@@ -1,57 +1,79 @@
 'use strict';
 
-// //lessons #47 Рекурсия
+// // //lessons #47 task
+//
+// function factorial(n) {
+//     if (n <= 0) {
+//         return 1;
+//     }
+//     if (typeof n !== 'number' || n % 1 !== 0) {
+//         return 'some string';
+//     }
+//     if (n === 1) {
+//         return n;
+//     } else {
+//         return n * factorial(n - 1);
+//     }
+// }
+//
+// console.log(factorial(1));
+// console.log(factorial(2));
+// console.log(factorial(3));
+// console.log(factorial(4));
+// console.log(factorial(5));
 
-
-let students = {
-    js: [{
-        name: 'John',
-        progress: 100
-    }, {
-        name: 'Ivan',
-        progress: 60
-    }],
-    html: {
-        basic: [{
-            name: 'Peter',
-            progress: 20
-        }, {
-            name: 'Ann',
-            progress: 18
-        }],
-        pro: [{
-            name: 'Sam',
-            progress: 10
-        }]
-    }
-};
-
-let midlProgress = {
-    students: 0,
-    progress: 0
-};
-
-function geyTotalProgressByRecursion(data) {
-    if (Array.isArray(data)) {
-        let total = 0;
-        for (let i = 0; i < data.length; i++) {
-            total += data[i].progress;
-        }
-        return [total, data.length];
-    } else {
-        let total = [0, 0];
-        for (let subData of Object.values(data)) {
-            const subDataArr = geyTotalProgressByRecursion(subData);
-            total[0] += subDataArr[0];
-            total[1] += subDataArr[1];
-        }
-        return total;
-    }
-
-}
-
-let data = geyTotalProgressByRecursion(students);
-console.log(data[0]/data[1]);
+// // //lessons #47 Рекурсия
+//
+//
+// let students = {
+//     js: [{
+//         name: 'John',
+//         progress: 100
+//     }, {
+//         name: 'Ivan',
+//         progress: 60
+//     }],
+//     html: {
+//         basic: [{
+//             name: 'Peter',
+//             progress: 20
+//         }, {
+//             name: 'Ann',
+//             progress: 18
+//         }],
+//         pro: [{
+//             name: 'Sam',
+//             progress: 10
+//         }]
+//     }
+// };
+//
+// let midlProgress = {
+//     students: 0,
+//     progress: 0
+// };
+//
+// function geyTotalProgressByRecursion(data) {
+//     if (Array.isArray(data)) {
+//         let total = 0;
+//         for (let i = 0; i < data.length; i++) {
+//             total += data[i].progress;
+//         }
+//         return [total, data.length];
+//     } else {
+//         let total = [0, 0];
+//         for (let subData of Object.values(data)) {
+//             const subDataArr = geyTotalProgressByRecursion(subData);
+//             total[0] += subDataArr[0];
+//             total[1] += subDataArr[1];
+//         }
+//         return total;
+//     }
+//
+// }
+//
+// let data = geyTotalProgressByRecursion(students);
+// console.log(data[0]/data[1]);
 // function geyTotalProgressByIteration(data) {
 //     for (let course of Object.values(data)) {
 //         if (Array.isArray(course)) {
