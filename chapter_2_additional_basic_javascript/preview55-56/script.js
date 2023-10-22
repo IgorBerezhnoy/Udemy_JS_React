@@ -1,16 +1,16 @@
 'use strict';
 // lesson 56 symbol
 
-const myAwesomeDB={
-movies:[],
-actors:[],
-    [Symbol("id")]:123,
-
-}
-
-myAwesomeDB.id="32232154"
-console.log(myAwesomeDB["id"]);
-console.log(myAwesomeDB);
+// const myAwesomeDB={
+// movies:[],
+// actors:[],
+//     [Symbol("id")]:123,
+//
+// }
+//
+// myAwesomeDB.id="32232154"
+// console.log(myAwesomeDB["id"]);
+// console.log(myAwesomeDB);
 // let id=Symbol("id")
 // const obj = {
 //     'name': 'Test',
