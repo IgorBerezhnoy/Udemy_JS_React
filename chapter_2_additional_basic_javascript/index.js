@@ -1,3 +1,58 @@
+// //lesson 61 Bigint
+
+// console.log(Number.MAX_SAFE_INTEGER);
+//(2^53)-1
+
+// const bigint = 1111111111111111115888888888n;
+//
+// const sameBigint = BigInt(5111111115454848778787987987987798);
+// console.log(typeof bigint);
+// console.log(typeof sameBigint);
+
+console.log(2==2n)
+console.log(2===2n)
+
+
+let bigint=1n
+let number=2
+console.log(bigint+BigInt(number));
+// console.log(+bigint+BigInt(number));
+console.log(Number(bigint+BigInt(number)));
+// console.log(5n>2n)
+// console.log(5n>2)
+// console.log(5n<2)
+// console.log(Math.floor(5n));
+// console.log(5n/2n) //2n
+// console.log(5n+1n);
+// console.log(5n+1);
+// console.log(5n+"1");
+
+// //lesson 60 Set
+
+
+// // const arr = [1, 1, 1, 2, 2, 3, 4, 5, 6, 5, 6];
+// const arr = ['Alex', 'Anna', 'Oleg', 'Oleg'];
+//
+// const set = new Set(arr);
+// set.add('Ivan');
+// set.add('Oleg');
+// // set.delete("")
+// // set.has("")
+// // arr.size()
+//
+//
+// // for (let  value of set){
+// //
+// // set.forEach((value,valueAgain,set,) => {
+// //     console.log(value);
+// // });
+// function  unique(arr){
+//     return  Array.from(new Set(arr))
+// }
+//
+// console.log(unique(arr));
+//
+
 //lesson 59 Map
 //
 //
