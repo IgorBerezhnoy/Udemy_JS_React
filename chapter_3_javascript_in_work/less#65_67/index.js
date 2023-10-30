@@ -1,58 +1,37 @@
-'use strict';
-//lesson68 Работа с датами
-const now = new Date();
-//
-// console.log(now.getFullYear());
-// console.log(now.getMonth());
-// console.log(now.getDay());
-// console.log(now.getDate());
-// console.log(now.getHours());
-// console.log(now.getUTCHours());
-// console.log(now.getTimezoneOffset());
-// console.log(now.getTimezoneOffset());
-// console.log(now.getTime());
-// console.log(now.setHours(18));
-console.log(now);
-let start = new Date();
-for (let i = 0; i < 100000000; i++) {
-    let some = i ** 3;
-}
-let end = new Date;
-console.log(end-start);
-//lesson67 (*) WeakMap и WeakSet
+//lesson67
+
 
 //
-// //
-// let cache = new WeakMap();
+let cache = new WeakMap();
+
+function cacheUser(user) {
+    if (!cache.has(user)) {
+        cache.set(user, Date.now());
+    }
+    return cache.get(user);
+}
+
+let lena = {name: 'Elena'};
+let alex = {name: 'Alex'};
+cacheUser(lena);
+cacheUser(alex);
+
+lena = null;
+console.log(cache.has(lena));
+console.log(cache.has(alex));
+
+let messages = [
+    {text: 'Hello', from: 'John'},
+    {text: 'World', from: 'Alex'},
+    {text: '.....', from: 'M'}
+];
+
+let readMessages = new WeakSet();
+readMessages.add(messages[0]);
+readMessages.add(messages[1]);
+
+console.log(readMessages.has(messages[0]));
 //
-// function cacheUser(user) {
-//     if (!cache.has(user)) {
-//         cache.set(user, Date.now());
-//     }
-//     return cache.get(user);
-// }
-//
-// let lena = {name: 'Elena'};
-// let alex = {name: 'Alex'};
-// cacheUser(lena);
-// cacheUser(alex);
-//
-// lena = null;
-// console.log(cache.has(lena));
-// console.log(cache.has(alex));
-//
-// let messages = [
-//     {text: 'Hello', from: 'John'},
-//     {text: 'World', from: 'Alex'},
-//     {text: '.....', from: 'M'}
-// ];
-//
-// let readMessages = new WeakSet();
-// readMessages.add(messages[0]);
-// readMessages.add(messages[1]);
-//
-// console.log(readMessages.has(messages[0]));
-// //
 // let user = {name: 'Ivan'};
 //
 // // const arr=[user]
