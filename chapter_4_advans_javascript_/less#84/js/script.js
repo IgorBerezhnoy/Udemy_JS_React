@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const modalTrigger = document.querySelectorAll('.data-modal');
   const modal = document.querySelector('.modal');
-  const modalCloseBtn = document.querySelector('[data-close]');
+  // const modalCloseBtn = document.querySelector('[data-close]');
   const closeModal = () => {
     modal.style.display = 'none';
     document.body.style.overflow = '';
@@ -88,9 +88,9 @@ window.addEventListener('DOMContentLoaded', () => {
   };
   modal.classList.add('hide');
   modalTrigger.forEach(el => el.addEventListener('click', () => openModal()));
-  modalCloseBtn.addEventListener('click', closeModal);
+  // modalCloseBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+    if (e.target === modal || e.target.getAttribute('data-close') === '') {
       closeModal();
     }
   });
@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const forms = document.querySelectorAll('form');
 
   const message = {
-    loading: 'loading',
+    loading: 'img/form/spinner.svg',
     success: 'Thanks',
     failure: 'Error',
   };
@@ -182,10 +182,11 @@ window.addEventListener('DOMContentLoaded', () => {
   function postData(form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const statusMessage = document.createElement('div');
-      statusMessage.classList.add('status');
-      statusMessage.textContent = message.loading;
-      form.append(statusMessage);
+      const statusMessage = document.createElement('img');
+      statusMessage.src = message.loading;
+      statusMessage.style.cssText = `display:block; margin: 0 auto`;
+      form.insertAdjacentElement('afterend', statusMessage);
+      // form.append(statusMessage);
       const request = new XMLHttpRequest();
       request.open('POST', 'server.php');
       request.setRequestHeader('Content-type', 'application/json');
@@ -194,22 +195,49 @@ window.addEventListener('DOMContentLoaded', () => {
       formData.forEach(function (value, key) {
         obj[key] = value;
       });
-      const json=JSON.stringify(obj)
+      const json = JSON.stringify(obj);
       request.send(json);
       request.addEventListener('load', () => {
         if (request.status === 200) {
+          showThanksModal(message.success);
           statusMessage.textContent = message.success;
           form.reset();
-          setTimeout(() => {
-            statusMessage.remove();
-          }, 2000);
-          console.log(request.response);
+          statusMessage.remove();
         } else {
-          statusMessage.textContent = message.failure;
+          showThanksModal(message.failure);
+          ;
           console.log(request.response);
         }
       });
     });
   }
 
+// 85. Красивое оповещение пользователя
+
+  function showThanksModal(message) {
+    const prevModalDialog = document.querySelector('.modal__dialog');
+    // prevModalDialog.classList.add('hide');
+    prevModalDialog.style.display = 'none';
+    // document.body.style.overflow = '';
+    // prevModalDialog.style.display="none"
+    openModal();
+    const thanksModal = document.createElement('div');
+    thanksModal.classList.add('modal__dialog');
+    thanksModal.innerHTML = `
+    <div class="modal__content">
+    <div class="modal__close" data-close>×</div>
+    <div class="modal__title">${message}</div>
+    </div>
+    `;
+    document.querySelector('.modal').append(thanksModal);
+    setTimeout(() => {
+      thanksModal.remove();
+      prevModalDialog.style.display = 'block';
+      // document.body.style.overflow = 'hidden';
+      // prevModalDialog.classList.add('show');
+      prevModalDialog.classList.remove('hide');
+      closeModal();
+    }, 4000);
+
+  }
 });
