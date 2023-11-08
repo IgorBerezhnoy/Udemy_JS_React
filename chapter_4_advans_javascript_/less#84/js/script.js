@@ -168,76 +168,91 @@ window.addEventListener('DOMContentLoaded', () => {
     '.menu .container', 'menu__item'
   ).render();
 //84. Реализация скрипта отправки данных на сервер
-  const forms = document.querySelectorAll('form');
 
+  const forms = document.querySelectorAll('form');
   const message = {
     loading: 'img/form/spinner.svg',
-    success: 'Thanks',
-    failure: 'Error',
+    success: 'Спасибо! Скоро мы с вами свяжемся',
+    failure: 'Что-то пошло не так...'
   };
-  forms.forEach(el => {
-    postData(el);
+
+  forms.forEach(item => {
+    postData(item);
   });
 
   function postData(form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const statusMessage = document.createElement('img');
+
+      let statusMessage = document.createElement('img');
       statusMessage.src = message.loading;
-      statusMessage.style.cssText = `display:block; margin: 0 auto`;
+      statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+            `;
       form.insertAdjacentElement('afterend', statusMessage);
-      // form.append(statusMessage);
-      const request = new XMLHttpRequest();
-      request.open('POST', 'server.php');
-      request.setRequestHeader('Content-type', 'application/json');
+
       const formData = new FormData(form);
-      const obj = {};
-      formData.forEach(function (value, key) {
-        obj[key] = value;
+
+      const object = {};
+      formData.forEach(function(value, key){
+        object[key] = value;
       });
-      const json = JSON.stringify(obj);
-      request.send(json);
-      request.addEventListener('load', () => {
-        if (request.status === 200) {
-          showThanksModal(message.success);
-          statusMessage.textContent = message.success;
-          form.reset();
-          statusMessage.remove();
-        } else {
-          showThanksModal(message.failure);
-          ;
-          console.log(request.response);
-        }
+
+      fetch('server.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(object)
+      }).then(data => {
+        console.log(data);
+        showThanksModal(message.success);
+        statusMessage.remove();
+      }).catch(() => {
+        showThanksModal(message.failure);
+      }).finally(() => {
+        form.reset();
       });
     });
   }
 
-// 85. Красивое оповещение пользователя
-
   function showThanksModal(message) {
     const prevModalDialog = document.querySelector('.modal__dialog');
-    // prevModalDialog.classList.add('hide');
-    prevModalDialog.style.display = 'none';
-    // document.body.style.overflow = '';
-    // prevModalDialog.style.display="none"
+
+    prevModalDialog.style.display='none';
     openModal();
+
     const thanksModal = document.createElement('div');
     thanksModal.classList.add('modal__dialog');
     thanksModal.innerHTML = `
-    <div class="modal__content">
-    <div class="modal__close" data-close>×</div>
-    <div class="modal__title">${message}</div>
-    </div>
-    `;
+            <div class="modal__content">
+                <div class="modal__close" data-close>×</div>
+                <div class="modal__title">${message}</div>
+            </div>
+        `;
     document.querySelector('.modal').append(thanksModal);
     setTimeout(() => {
       thanksModal.remove();
-      prevModalDialog.style.display = 'block';
-      // document.body.style.overflow = 'hidden';
-      // prevModalDialog.classList.add('show');
+      prevModalDialog.style.display='block';
+
       prevModalDialog.classList.remove('hide');
       closeModal();
     }, 4000);
-
   }
+
+  // fetch('http://jsonplaceholder.typicode.com/posts', {
+  //   method: 'POST',
+  //   body: JSON.stringify({name: 'Alex'}),
+  //   headers: {
+  //     'Content-type': 'application/json'
+  //   }
+  // })
+  //   .then(res => res.json())
+  //   .then(json => console.log(json));
 });
+// fiber 3
+// recantilation
+// lazy loading
+// useMemo
+// errorbaundree
