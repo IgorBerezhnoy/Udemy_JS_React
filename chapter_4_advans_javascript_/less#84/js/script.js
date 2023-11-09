@@ -113,7 +113,7 @@ window.addEventListener('DOMContentLoaded', () => {
   class MenuCard {
     constructor(title, text, price, srs, alt, parentSelector, ...classes) {
       this.title = title;
-      this.text = text;
+      this.descr = text;
       this.price = price;
       this.classes = classes || ['menu__item'];
       this.srs = srs;
@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
       element.innerHTML = `
                     <img src=${this.srs} alt=${this.alt}>
                     <h3 class="menu__item-subtitle">${this.title}</h3>
-                    <div class="menu__item-descr">${this.text}</div>
+                    <div class="menu__item-descr">${this.descr}</div>
                     <div class="menu__item-divider"></div>
                    <div class="menu__item-price">
                         <div class="menu__item-cost">Цена:</div>
@@ -143,30 +143,53 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  new MenuCard(
-    'Меню "Фитнес',
-    'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-    9,
-    'img/tabs/vegy.jpg',
-    'vegy',
-    '.menu .container', 'menu__item'
-  ).render();
-  new MenuCard(
-    'Меню “Премиум”',
-    'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-    25,
-    'img/tabs/elite.jpg',
-    'elite',
-    '.menu .container', 'menu__item'
-  ).render();
-  new MenuCard(
-    'Меню "Постное"',
-    'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков. ',
-    18,
-    'img/tabs/post.jpg',
-    'post',
-    '.menu .container', 'menu__item'
-  ).render();
+  const getResource = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Could not fetch ${url}, status:${res.status}`);
+    }
+    return await res.json();
+  };
+  //
+  // getResource('http://localhost:3000/menu')
+  //   .then(data => {
+  //     data.forEach(({title, descr,price,img,altimg }) => {
+  //       new MenuCard(title, descr,price,img,altimg , '.menu .container', 'menu__item')
+  //         .render();
+  //     });
+  //   });
+
+  axios.get('http://localhost:3000/menu')
+    .then(data => {
+      data.data.forEach(({title, descr, price, img, altimg}) => {
+        new MenuCard(title, descr, price, img, altimg, '.menu .container', 'menu__item')
+          .render();
+      });
+    });
+  // getResource('http://localhost:3000/menu')
+  //   .then(data => {
+  //     createCard(data);
+  //   });
+  //
+  // function createCard(data) {
+  //   data.forEach(({title, descr, price, img, altimg}) => {
+  //       const element = document.createElement('div');
+  //       element.innerHTML = `
+  //           <img src=${img} alt=${altimg}>
+  //                   <h3 class="menu__item-subtitle">${title}</h3>
+  //                   <div class="menu__item-descr">${descr}</div>
+  //                   <div class="menu__item-divider"></div>
+  //                  <div class="menu__item-price">
+  //                       <div class="menu__item-cost">Цена:</div>
+  //                       <div class="menu__item-total"><span>${price}</span> грн/день</div>
+  //                  </div>
+  //           `;
+  //       document.querySelector('.menu .container ').append(element);
+  //     }
+  //   );
+  // }
+
+
 //84. Реализация скрипта отправки данных на сервер
 
   const forms = document.querySelectorAll('form');
@@ -177,10 +200,22 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   forms.forEach(item => {
-    postData(item);
+    bindPostData(item);
   });
 
-  function postData(form) {
+  const postData = async (url, data) => {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: data
+    });
+    return await res.json();
+  };
+
+
+  function bindPostData(form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -194,22 +229,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const formData = new FormData(form);
 
-      const object = {};
-      formData.forEach(function(value, key){
-        object[key] = value;
-      });
+      const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-      fetch('server.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(object)
-      }).then(data => {
-        console.log(data);
-        showThanksModal(message.success);
-        statusMessage.remove();
-      }).catch(() => {
+      postData('http://localhost:3000/requests', json)
+        .then(data => {
+          console.log(data);
+          showThanksModal(message.success);
+          statusMessage.remove();
+        }).catch(() => {
         showThanksModal(message.failure);
       }).finally(() => {
         form.reset();
@@ -220,7 +247,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function showThanksModal(message) {
     const prevModalDialog = document.querySelector('.modal__dialog');
 
-    prevModalDialog.style.display='none';
+    prevModalDialog.style.display = 'none';
     openModal();
 
     const thanksModal = document.createElement('div');
@@ -234,13 +261,10 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.modal').append(thanksModal);
     setTimeout(() => {
       thanksModal.remove();
-      prevModalDialog.style.display='block';
+      prevModalDialog.style.display = 'block';
 
       prevModalDialog.classList.remove('hide');
       closeModal();
     }, 4000);
   }
-  fetch('http://localhost:3000/menu')
-    .then(data=>data.json())
-    .then(res=>console.log(res))
 });
