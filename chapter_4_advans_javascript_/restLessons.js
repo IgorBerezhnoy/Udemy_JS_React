@@ -1,37 +1,64 @@
 'use strict';
+//89. Подробно про npm и проект. JSON-server
+
+
+
+
+// Упражнение по написанию кода 21: Задания на работу с методами массивов
+
+// const funds = [
+//   {amount: -1400},
+//   {amount: 2400},
+//   {amount: -1000},
+//   {amount: 500},
+//   {amount: 10400},
+//   {amount: -11400}
+// ];
+//
+// const getPositiveIncomeAmount = (data) => data.filter(el => el.amount > 0).map(el=>el.amount).reduce((el, next) => el + next)
+// console.log(getPositiveIncomeAmount(funds));
+// const getTotalIncomeAmount = (data) => {
+//   const newData=data.map(el=>el.amount)
+//   if (newData.some(el=>el<0)){
+//     return newData.reduce((el,next)=>el+next)
+//   }else {
+//     getPositiveIncomeAmount(data)
+//   }
+// };
+
 
 //Упражнение по написанию кода 20: Задания на работу с методами массивов
-const films = [
-  {
-    name: 'Titanic',
-    rating: 9
-  },
-  {
-    name: 'Die hard 5',
-    rating: 5
-  },
-  {
-    name: 'Matrix',
-    rating: 8
-  },
-  {
-    name: 'Some bad film',
-    rating: 4
-  }
-];
-
-const showGoodFilms = (arr) => arr.filter(el => el.rating >= 8);
-
-const showListOfFilms = (arr) => arr.reduce((el, current) => `${el}, ${current.name}`,"").slice(2);
-// console.log(showListOfFilms(films));
-
-// const setFilmsIds=(arr)=>arr.map((el,i)=> ({...el,id:i}))
-const setFilmsIds=(arr)=>arr.map((el,i)=> (Object.assign(el,{id:i})))
-console.log(setFilmsIds(films))
-const tranformedArray = setFilmsIds(films);
-
-const checkFilms=(arr)=>arr.every(el=>el.id>=0)
-console.log(checkFilms(tranformedArray))
+// const films = [
+//   {
+//     name: 'Titanic',
+//     rating: 9
+//   },
+//   {
+//     name: 'Die hard 5',
+//     rating: 5
+//   },
+//   {
+//     name: 'Matrix',
+//     rating: 8
+//   },
+//   {
+//     name: 'Some bad film',
+//     rating: 4
+//   }
+// ];
+//
+// const showGoodFilms = (arr) => arr.filter(el => el.rating >= 8);
+//
+// const showListOfFilms = (arr) => arr.reduce((el, current) => `${el}, ${current.name}`,"").slice(2);
+// // console.log(showListOfFilms(films));
+//
+// // const setFilmsIds=(arr)=>arr.map((el,i)=> ({...el,id:i}))
+// const setFilmsIds=(arr)=>arr.map((el,i)=> (Object.assign(el,{id:i})))
+// console.log(setFilmsIds(films))
+// const tranformedArray = setFilmsIds(films);
+//
+// const checkFilms=(arr)=>arr.every(el=>el.id>=0)
+// console.log(checkFilms(tranformedArray))
 //88. Методы перебора массивов
 
 //filter
@@ -61,11 +88,11 @@ console.log(checkFilms(tranformedArray))
 // const res=arr.reduce((sum,current)=>sum+current)
 // console.log(res);
 //
-const arr = ['apple', 'pear', 'plum'];
-
-const res = arr.reduce((sum, current) => `${sum}, ${current}`, '3');
-console.log(res);
-
+// const arr = ['apple', 'pear', 'plum'];
+//
+// const res = arr.reduce((sum, current) => `${sum}, ${current}`, '3');
+// console.log(res);
+//
 
 // const obj = {
 //   ivan: 'persone',

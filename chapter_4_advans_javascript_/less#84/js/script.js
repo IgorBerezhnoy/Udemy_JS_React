@@ -240,19 +240,7 @@ window.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }, 4000);
   }
-
-  // fetch('http://jsonplaceholder.typicode.com/posts', {
-  //   method: 'POST',
-  //   body: JSON.stringify({name: 'Alex'}),
-  //   headers: {
-  //     'Content-type': 'application/json'
-  //   }
-  // })
-  //   .then(res => res.json())
-  //   .then(json => console.log(json));
+  fetch('http://localhost:3000/menu')
+    .then(data=>data.json())
+    .then(res=>console.log(res))
 });
-// fiber 3
-// recantilation
-// lazy loading
-// useMemo
-// errorbaundree
