@@ -238,40 +238,155 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
-  //92. Создаем слайдер на сайте, вариант 1
-  let slides = document.querySelectorAll('.offer__slide');
-  let current = document.querySelector('#current');
-  let total = document.querySelector('#total');
-  let sliderNext = document.querySelector('.offer__slider-next');
-  let sliderPrev = document.querySelector('.offer__slider-prev');
-  const startSlider = () => {
+  // //92. Создаем слайдер на сайте, вариант 1
+  // let slides = document.querySelectorAll('.offer__slide');
+  // let current = document.querySelector('#current');
+  // let total = document.querySelector('#total');
+  // let sliderNext = document.querySelector('.offer__slider-next');
+  // let sliderPrev = document.querySelector('.offer__slider-prev');
+  // const startSlider = () => {
+  //   total.textContent = slides.length.toString();
+  //   current.textContent = '01';
+  //   slides.forEach((el, i) => {
+  //     if (i !== 0) el.style.display = 'none';
+  //   });
+  // };
+  // startSlider();
+  // const converterNum = (Num) => Num <= 9 ? '0' + Num : '' + Num;
+  //
+  // const setImg = (direction) => {
+  //   let currentNum;
+  //   if (direction === 'prev') {
+  //     currentNum = (+current.textContent) !== 1 ? +current.textContent - 1 : slides.length.toString();
+  //   } else if (direction === 'next') {
+  //     currentNum = (+current.textContent) < +total.textContent ? +current.textContent + 1 : 1;
+  //   }else {
+  //     throw new Error('Error');
+  //   }
+  //   slides[+current.textContent - 1].style.display = 'none';
+  //   slides[currentNum - 1].style.display = 'block';
+  //   current.textContent = converterNum(currentNum);
+  // };
+  //
+  //
+  // sliderNext.addEventListener('click', () => {
+  //   setImg('next');
+  // });
+  //
+  // sliderPrev.addEventListener('click', () => {
+  //   setImg('prev');
+  // });
+
+  // Slider
+
+  const slides = document.querySelectorAll('.offer__slide'),
+    prev = document.querySelector('.offer__slider-prev'),
+    next = document.querySelector('.offer__slider-next'),
+    total = document.querySelector('#total'),
+    current = document.querySelector('#current'),
+    slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+    slidesField = document.querySelector('.offer__slider-inner'),
+    width = window.getComputedStyle(slidesWrapper).width;
+
+
+  let slideIndex = 1;
+  let offset = 0;
+
+
+  if (slides.length < 10) {
+    total.textContent = `0${slides.length}`;
+    current.textContent = `0${slideIndex}`;
+  } else {
     total.textContent = slides.length.toString();
-    current.textContent = '01';
-    slides.forEach((el, i) => {
-      if (i !== 0) el.style.display = 'none';
-    });
-  };
-  startSlider();
-  const converterNum = (Num) => Num <= 9 ? '0' + Num : '' + Num;
+    current.textContent = `0${slideIndex}`;
+  }
 
-  const setImg = (direction) => {
-    let currentNum;
-    if (direction === 'prev') {
-      currentNum = (+current.textContent) !== 1 ? +current.textContent - 1 : slides.length.toString();
-    } else if (direction === 'next') {
-      currentNum = (+current.textContent) < +total.textContent ? +current.textContent + 1 : 1;
+  slidesField.style.width = 100 * slides.length + '%';
+  slidesField.style.display = 'flex';
+  slidesField.style.transition = '0.5s all';
+  slidesWrapper.style.overflow = 'hidden';
+  slides.forEach(el => el.style.width = width);
+
+  next.addEventListener('click', () => {
+    if (offset === +width.slice(0, width.length - 2) * (slides.length - 1)) {
+      offset = 0;
+    } else {
+      offset += +width.slice(0, width.length - 2);
     }
-    slides[+current.textContent - 1].style.display = 'none';
-    slides[currentNum - 1].style.display = 'block';
-    current.textContent = converterNum(currentNum);
-  };
+    slidesField.style.transform = `translateX(-${offset}px)`;
+
+    if (slideIndex === slides.length) {
+      slideIndex = 1;
+    } else {
+      slideIndex++;
+    }
+    if (slides.length < 10) {
+      current.textContent = `0${slideIndex}`;
+    } else {
+      current.textContent = slideIndex;
+    }
+  });
+  prev.addEventListener('click', () => {
+    if (offset === 0) {
+      offset = +width.slice(0, width.length - 2) * (slides.length - 1);
+    } else {
+      offset -= +width.slice(0, width.length - 2);
+    }
+    slidesField.style.transform = `translateX(-${offset}px)`;
 
 
-  sliderNext.addEventListener('click', () => {
-    setImg('next');
+    if (slideIndex === 1) {
+      slideIndex = slides.length;
+    } else {
+      slideIndex--
+    }
+    if (slides.length < 10) {
+      current.textContent = `0${slideIndex}`;
+    } else {
+      current.textContent = slideIndex;
+    }
   });
 
-  sliderPrev.addEventListener('click', () => {
-    setImg('prev');
-  });
-});
+
+
+// showSlides(slideIndex);
+//
+// if (slides.length < 10) {
+//   total.textContent = `0${slides.length}`;
+// } else {
+//   total.textContent = slides.length;
+// }
+//
+// function showSlides(n) {
+//   if (n > slides.length) {
+//     slideIndex = 1;
+//   }
+//   if (n < 1) {
+//     slideIndex = slides.length;
+//   }
+//
+//   slides.forEach((item) => item.style.display = 'none');
+//
+//   slides[slideIndex - 1].style.display = 'block'; // Как ваша самостоятельная работа - переписать на использование классов show/hide
+//
+//   if (slides.length < 10) {
+//     current.textContent =  `0${slideIndex}`;
+//   } else {
+//     current.textContent =  slideIndex;
+//   }
+// }
+//
+// function plusSlides (n) {
+//   showSlides(slideIndex += n);
+// }
+//
+// prev.addEventListener('click', function(){
+//   plusSlides(-1);
+// });
+//
+// next.addEventListener('click', function(){
+//   plusSlides(1);
+// });
+
+})
+;
