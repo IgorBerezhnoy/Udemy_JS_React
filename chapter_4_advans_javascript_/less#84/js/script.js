@@ -150,14 +150,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     return await res.json();
   };
-  //
-  // getResource('http://localhost:3000/menu')
-  //   .then(data => {
-  //     data.forEach(({title, descr,price,img,altimg }) => {
-  //       new MenuCard(title, descr,price,img,altimg , '.menu .container', 'menu__item')
-  //         .render();
-  //     });
-  //   });
 
   axios.get('http://localhost:3000/menu')
     .then(data => {
@@ -166,28 +158,6 @@ window.addEventListener('DOMContentLoaded', () => {
           .render();
       });
     });
-  // getResource('http://localhost:3000/menu')
-  //   .then(data => {
-  //     createCard(data);
-  //   });
-  //
-  // function createCard(data) {
-  //   data.forEach(({title, descr, price, img, altimg}) => {
-  //       const element = document.createElement('div');
-  //       element.innerHTML = `
-  //           <img src=${img} alt=${altimg}>
-  //                   <h3 class="menu__item-subtitle">${title}</h3>
-  //                   <div class="menu__item-descr">${descr}</div>
-  //                   <div class="menu__item-divider"></div>
-  //                  <div class="menu__item-price">
-  //                       <div class="menu__item-cost">Цена:</div>
-  //                       <div class="menu__item-total"><span>${price}</span> грн/день</div>
-  //                  </div>
-  //           `;
-  //       document.querySelector('.menu .container ').append(element);
-  //     }
-  //   );
-  // }
 
 
 //84. Реализация скрипта отправки данных на сервер
@@ -267,4 +237,41 @@ window.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }, 4000);
   }
+
+  //92. Создаем слайдер на сайте, вариант 1
+  let slides = document.querySelectorAll('.offer__slide');
+  let current = document.querySelector('#current');
+  let total = document.querySelector('#total');
+  let sliderNext = document.querySelector('.offer__slider-next');
+  let sliderPrev = document.querySelector('.offer__slider-prev');
+  const startSlider = () => {
+    total.textContent = slides.length.toString();
+    current.textContent = '01';
+    slides.forEach((el, i) => {
+      if (i !== 0) el.style.display = 'none';
+    });
+  };
+  startSlider();
+  const converterNum = (Num) => Num <= 9 ? '0' + Num : '' + Num;
+
+  const setImg = (direction) => {
+    let currentNum;
+    if (direction === 'prev') {
+      currentNum = (+current.textContent) !== 1 ? +current.textContent - 1 : slides.length.toString();
+    } else if (direction === 'next') {
+      currentNum = (+current.textContent) < +total.textContent ? +current.textContent + 1 : 1;
+    }
+    slides[+current.textContent - 1].style.display = 'none';
+    slides[currentNum - 1].style.display = 'block';
+    current.textContent = converterNum(currentNum);
+  };
+
+
+  sliderNext.addEventListener('click', () => {
+    setImg('next');
+  });
+
+  sliderPrev.addEventListener('click', () => {
+    setImg('prev');
+  });
 });
