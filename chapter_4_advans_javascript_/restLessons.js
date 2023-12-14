@@ -1,51 +1,52 @@
 'use strict';
 
+
 // 100. Инкапсуляция
-class User {
-  constructor(name, age) {
-    this.name = name;
-    this._age = age;
-
-  }
-
-  #surname = 'Ivanov';
-  get surname() {
-    return this.#surname;
-  }
-
-  set surname(surname) {
-    this.#surname = surname;
-  }
-
-  say() {
-    console.log(`Имя пользователя: ${this.name} ${this.#surname}, возраст ${this.age}`);
-  }
-
-  get age() {
-    return this._age;
-  }
-
-  set age(age) {
-    if (typeof age === 'number' && age > 0 && age < 110) {
-      this._age = age;
-    } else {
-      console.log('Error');
-    }
-  };
-}
-
-const ivan = new User('Ivan', 27);
-console.log(ivan.name);
-console.log(ivan.age);
-ivan.age = 30;
-ivan.say();
-ivan.age = 300;
-ivan.say();
-ivan.name = 'Alex';
-console.log(ivan.surname
-);
-ivan.surname = 'Lenin';
-ivan.say();
+// class User {
+//   constructor(name, age) {
+//     this.name = name;
+//     this._age = age;
+//
+//   }
+//
+//   #surname = 'Ivanov';
+//   get surname() {
+//     return this.#surname;
+//   }
+//
+//   set surname(surname) {
+//     this.#surname = surname;
+//   }
+//
+//   say() {
+//     console.log(`Имя пользователя: ${this.name} ${this.#surname}, возраст ${this.age}`);
+//   }
+//
+//   get age() {
+//     return this._age;
+//   }
+//
+//   set age(age) {
+//     if (typeof age === 'number' && age > 0 && age < 110) {
+//       this._age = age;
+//     } else {
+//       console.log('Error');
+//     }
+//   };
+// }
+//
+// const ivan = new User('Ivan', 27);
+// console.log(ivan.name);
+// console.log(ivan.age);
+// ivan.age = 30;
+// ivan.say();
+// ivan.age = 300;
+// ivan.say();
+// ivan.name = 'Alex';
+// console.log(ivan.surname
+// );
+// ivan.surname = 'Lenin';
+// ivan.say();
 //99. Геттеры и сеттеры (свойства объектов)
 // const person = {
 //   name: 'Alex',
