@@ -1,6 +1,17 @@
 'use strict';
 
+//108. Как превратить код ES6+ в старый формат ES5. Babel, Core.js и полифиллы
 
+// //106
+//
+// try {
+//   console2.log("Good");
+// }catch (e){
+//   console.log(e.name);
+//   console.log(e.message);
+//   console.log(e.stack);
+// }
+// console.log(2111);
 // 100. Инкапсуляция
 // class User {
 //   constructor(name, age) {
