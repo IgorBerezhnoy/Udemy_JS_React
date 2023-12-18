@@ -1,7 +1,7 @@
 function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
 	let tabs = document.querySelectorAll(tabsSelector),
 		tabsContent = document.querySelectorAll(tabsContentSelector),
-		tabsParent = document.querySelector(tabsParentSelector);
+		tabsParent = document.querySelector(tabsParentSelector).classList;
 
 	function hideTabContent() {
         
