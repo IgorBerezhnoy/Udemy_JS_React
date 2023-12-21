@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
 import React, {Component} from 'react';
 
-const Header = () => <h2>Hello world</h2>;
-const Btn = () => <button>Hello world</button>;
+class WhoAmI extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      years: 27,
+      text: '+++',
+      value: ''
+    };
+  }
 
-class Field extends Component {
+  nextYear = () => {
+    this.setState(state => ({
+      years: state.years + 1
+    }));
+  };
+  changeState = (value) => {
+    this.setState({
+      value
+    });
+  };
+
   render() {
-    return <input/>;
+
+    const {name, surname} = this.props;
+    const {years, value} = this.state;
+    return <div>
+      <button onClick={this.nextYear}>{this.state.text}</button>
+      <h1>My name is {`${name} ${surname} years ${years}`} Я {value || '...'} </h1>
+      <span>Ведите должность:</span>
+      <input onChange={(e) => this.changeState(e.currentTarget.value)} value={value}/>
+    </div>;
   }
 }
+
 
 function App() {
 
   return (
     <div className="App">
-      <Header/>
-      <Field/>
-      <Btn/>
+      <WhoAmI name={'Igor'} surname={'Petrov'}/>
     </div>
   );
 }
