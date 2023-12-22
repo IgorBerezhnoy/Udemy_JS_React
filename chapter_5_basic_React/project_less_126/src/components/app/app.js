@@ -8,16 +8,14 @@ import './app.css';
 import {Component} from 'react';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [
-        {name: 'John C.', salary: 800, increase: false, id: 1, isLiked: false},
-        {name: 'Alex M.', salary: 3000, increase: true, id: 2, isLiked: false},
-        {name: 'Carl M.', salary: 5000, increase: false, id: 3, isLiked: true}]
-    };
-  }
-
+  state = {
+    data: [
+      {name: 'John C.', salary: 800, increase: false, id: 1, isLiked: false},
+      {name: 'Alex M.', salary: 3000, increase: true, id: 2, isLiked: false},
+      {name: 'Carl M.', salary: 5000, increase: false, id: 3, isLiked: true}],
+    term: '',
+    filter: 'all'
+  };
 
   deleteUser = (id) => {
     this.setState({data: this.state.data.filter(el => el.id !== id)});
@@ -34,20 +32,40 @@ class App extends Component {
 
   };
 
+  searchEmp = (items, term) => {
+    if (term.length === 0) {
+      return items;
+    }
+    return items.filter(el => el.name.indexOf(term) > -1);
+  };
+
+  setTerm = (term) => this.setState({term});
+  setFilter = (filter) => this.setState({filter});
+
   render() {
-    const {data} = this.state;
-    const employeesIncrease=data.filter(el=>el.increase).length
+    let visibleData;
+    const {data, term, filter} = this.state;
+    const employeesIncrease = data.filter(el => el.increase).length;
+    visibleData = this.searchEmp(data, term);
+
+    if (filter === 'more1000') {
+      visibleData = visibleData.filter(el => el.salary > 1000);
+    } else if (filter === 'increase') {
+      visibleData = visibleData.filter(el => el.increase);
+    } else {
+      visibleData = this.searchEmp(data, term);
+    }
     return (
 
       <div className="app">
         <AppInfo employeesLeng={data.length} employeesIncrease={employeesIncrease}/>
 
         <div className="search-panel">
-          <SearchPanel/>
-          <AppFilter/>
+          <SearchPanel term={term} setTerm={this.setTerm}/>
+          <AppFilter setFilter={this.setFilter} filter={filter}/>
         </div>
 
-        <EmployeesList data={this.state.data} deleteUser={this.deleteUser} setIsLiked={this.setIsLiked}
+        <EmployeesList data={visibleData} deleteUser={this.deleteUser} setIsLiked={this.setIsLiked}
                        setIncrease={this.setIncrease}/>
         <EmployeesAddForm addUser={this.addUser}/>
       </div>

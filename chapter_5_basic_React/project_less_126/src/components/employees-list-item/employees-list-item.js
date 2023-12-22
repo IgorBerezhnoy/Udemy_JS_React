@@ -4,7 +4,7 @@ const EmployeesListItem = ({name, salary, increase, isLiked, id, deleteUser, set
 
   return (<li
     className={`list-group-item d-flex justify-content-between ${increase ? 'increase' : ''} ${isLiked ? 'like' : ''}`}>
-    <span className={`list-group-item-label`} onClick={() => setIsLiked(id, !isLiked)}>{name}</span>
+    <span className={`list-group-item-label`} tab onClick={() => setIsLiked(id, !isLiked)}>{name}</span>
     <input type="text" className={`list-group-item-input`} defaultValue={`${salary}$`}/>
     <div className={`d-flex justify-content-center align-items-center`}>
       <button type="button" onClick={() => setIncrease(id, !increase)}
