@@ -9,7 +9,7 @@ class SearchPanel extends Component {
   render() {
     const {term, setTerm} = this.props;
     return (
-      <input value={term} onChange={(e) => setTerm(e.currentTarget.value)} type="text"
+      <input autoFocus value={term} onChange={(e) => setTerm(e.currentTarget.value)} type="text"
              className="form-control search-input"
              placeholder="Найти сотрудника"/>
     );
