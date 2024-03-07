@@ -12,10 +12,13 @@ btns[0].style.borderRadius = '100%';
 circles[1].style.cssText = `background-color: red; width: 100px; height: 100px;`;
 console.log(boxId);
 // hearts.forEach(el=>el.style.backgroundColor = 'deepPink');
-const div = document.createElement('div');
 const text = document.createTextNode('Its me');
-div.classList.add('black');
-document.body.append(div);
+  const div = document.createElement('div');
+  div.classList.add('black');
+  document.body.prepend(div);
+  document.body.before(div);
+  document.body.appendChild(div);
+  document.body.append(div);
 // document.body.prepend(div);
 // document.body.after(div);
 // document.body.before(div);
@@ -28,7 +31,7 @@ document.body.append(div);
 
 // wrapper.removeChild(h)
 
-div.innerHTML = '<h1>Hello world</h1>';
-// div.textContent="Hello world"
-
-div.insertAdjacentHTML('afterbegin', '<b> Hello</b>');
+// div.innerHTML = '<h1>Hello world</h1>';
+// // div.textContent="Hello world"
+//
+// div.insertAdjacentHTML('afterbegin', '<b> Hello</b>');
