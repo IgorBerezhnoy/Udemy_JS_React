@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="div1" onclick="console.log(1);">
+  <div onclick="console.log(2); event.stopPropagation()" id="div2">
+    <button onclick="console.log(3);">Click</button>
+  </div>
+</div>
+<script>
+  function foo4(event) {
+    console.log(4);
+  }
+
+  function foo5() {
+    console.log(5);
+  }
+
+  div1.addEventListener('click', foo4);
+  div2.addEventListener('click', foo5);
+</script>
+</body>
+</html>

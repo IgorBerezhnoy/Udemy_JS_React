@@ -2,6 +2,7 @@
 const boxId = document.getElementById('box'),
   btns = document.getElementsByTagName('button'),
   circles = document.getElementsByClassName('circle'),
+  btn = document.querySelectorAll('.btn'),
   wrapper = document.querySelector('.wrapper'),
   hearts = document.querySelectorAll('.heart'), oneHeart = document.querySelector('.heart');
 document.querySelector('body').style.backgroundColor = 'grey';
@@ -35,3 +36,5 @@ const text = document.createTextNode('Its me');
 // // div.textContent="Hello world"
 //
 // div.insertAdjacentHTML('afterbegin', '<b> Hello</b>');
+
+btn[0].textContent="aaa"
