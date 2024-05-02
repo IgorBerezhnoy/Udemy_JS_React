@@ -4,7 +4,8 @@ import * as Yup from 'yup';
 const MyTextInput = ({label, name, ...props}) => {
   return <><label htmlFor={name}>{label}</label>
     <Field id={name} name={name} {...props}/>
-    <ErrorMessage name={name} component="div"/></>;
+    <ErrorMessage name={name} component="div"/>
+  </>;
 };
 const CustomForm = () => {
   const fields = [{
