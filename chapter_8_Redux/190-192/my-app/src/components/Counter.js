@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const Counter = ({count, dec, inc, rand}) => {
+
   return (
     <div>
       <div>{count}</div>
