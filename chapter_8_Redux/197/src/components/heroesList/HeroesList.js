@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {deleteHeroById, heroesFetched, heroesFetching, heroesFetchingError, setFilters} from '../../actions';
 import HeroesListItem from '../heroesListItem/HeroesListItem';
 import Spinner from '../spinner/Spinner';
+import {createSelector} from 'reselect';
 
 // Задача для этого компонента:
 // При клике на "крестик" идет удаление персонажа из общего состояния
@@ -12,7 +13,18 @@ import Spinner from '../spinner/Spinner';
 // Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const {filters, heroesLoadingStatus} = useSelector(state => state);
+  const select = createSelector(
+    state => state.filters.activeFilter,
+    state => state.heroes.heroes,
+    (activeFilter, heroes) => {
+      if (activeFilter === 'all') {
+        return heroes;
+      } else {
+        return heroes.filter(el => el.element === activeFilter);
+      }
+    });
+  const filteredHeroes = useSelector(select);
+  const {heroesLoadingStatus} = useSelector(state => state.heroes);
   const dispatch = useDispatch();
   const {request} = useHttp();
   const deleteHero = async (id) => {
@@ -26,11 +38,10 @@ const HeroesList = () => {
     request('http://localhost:3001/heroes')
       .then(data => {
         dispatch(heroesFetched(data));
-        dispatch(setFilters("all"));
       })
       .catch(() => dispatch(heroesFetchingError()));
-
   }, []);
+
 
   if (heroesLoadingStatus === 'loading') {
     return <Spinner/>;
@@ -48,7 +59,7 @@ const HeroesList = () => {
     });
   };
 
-  const elements = renderHeroesList(filters);
+  const elements = renderHeroesList(filteredHeroes);
   return (
     <ul>
       {elements}

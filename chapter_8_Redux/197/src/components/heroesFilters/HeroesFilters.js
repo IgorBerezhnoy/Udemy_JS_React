@@ -6,30 +6,43 @@
 // Представьте, что вы попросили бэкенд-разработчика об этом
 
 import {useDispatch, useSelector} from 'react-redux';
-import {setActiveFilter, setFilters} from '../../actions';
+import {heroesFetching, heroesFetchingError, setActiveFilter, setFilters} from '../../actions';
 import classNames from 'classnames';
+import {useEffect} from 'react';
+import {useHttp} from '../../hooks/http.hook';
 
 const HeroesFilters = () => {
-  const activeFilter = useSelector(state => state.activeFilter);
+  const {request} = useHttp();
+  useEffect(() => {
+    dispatch(heroesFetching());
+    request('http://localhost:3001/filters')
+      .then(data => {
+        dispatch(setFilters(data));
+      })
+      .catch(() => dispatch(heroesFetchingError()));
+
+  }, []);
+
+  const activeFilter = useSelector(state => state.filters.activeFilter);
   const dispatch = useDispatch();
   const onFilterSelect = (filter) => {
     dispatch(setFilters(filter));
     dispatch(setActiveFilter(filter));
   };
-  const btns={
-    all: {ru:'Все',className:'btn-outline-dark'},
-    fire: {ru:'Огонь',className:'btn-danger'},
-    water: {ru:'Вода',className:'btn-primary'},
-    wind: {ru:'Ветер',className:'btn-success'},
-    earth: {ru:'Земля',className:'btn-secondary'},
-  }
-  const elements= Object.keys(btns).map(key => {
-    const {ru,className} = btns[key];
+  const btns = {
+    all: {ru: 'Все', className: 'btn-outline-dark'},
+    fire: {ru: 'Огонь', className: 'btn-danger'},
+    water: {ru: 'Вода', className: 'btn-primary'},
+    wind: {ru: 'Ветер', className: 'btn-success'},
+    earth: {ru: 'Земля', className: 'btn-secondary'},
+  };
+  const elements = Object.keys(btns).map(key => {
+    const {ru, className} = btns[key];
     const btnClass = classNames('btn', className, {'active': activeFilter === key});
     return (
       <button key={key} onClick={() => onFilterSelect(key)} className={btnClass}>{ru}</button>
-    )
-  })
+    );
+  });
   return (
     <div className="card shadow-lg mt-4">
       <div className="card-body">

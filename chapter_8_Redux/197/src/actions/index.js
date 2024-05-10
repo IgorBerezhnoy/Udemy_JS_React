@@ -28,7 +28,7 @@ export const addHero = (hero) => {
     payload: hero
   };
 };
-export const setFilters = (filter = 'all') => {
+export const setFilters = (filter ) => {
   return {
     type: 'SET_FILTERS',
     payload: filter

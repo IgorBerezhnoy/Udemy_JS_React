@@ -29,6 +29,18 @@
       "description": "asda",
       "element": "earth",
       "id": "b4b69e01-0951-4633-ab28-c2893a68fc8a"
+    },
+    {
+      "name": "dasd",
+      "description": "adas",
+      "element": "fire",
+      "id": "7275cf2b-dc81-4a58-ae00-e35f46c37a2b"
+    },
+    {
+      "name": "dasd",
+      "description": "adas",
+      "element": "water",
+      "id": "c511d6d7-f86d-410d-a287-da2e11bf1121"
     }
   ],
   "filters": [
