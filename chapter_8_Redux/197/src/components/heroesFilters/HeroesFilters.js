@@ -6,21 +6,22 @@
 // Представьте, что вы попросили бэкенд-разработчика об этом
 
 import {useDispatch, useSelector} from 'react-redux';
-import {heroesFetching, heroesFetchingError, setActiveFilter, setFilters} from '../../actions';
 import classNames from 'classnames';
 import {useEffect} from 'react';
 import {useHttp} from '../../hooks/http.hook';
+import {fetchFilters} from '../../actions';
+import {setActiveFilter} from './filtersSlice';
 
 const HeroesFilters = () => {
   const {request} = useHttp();
   useEffect(() => {
-
+    dispatch(fetchFilters(request));
   }, []);
 
   const activeFilter = useSelector(state => state.filters.activeFilter);
   const dispatch = useDispatch();
   const onFilterSelect = (filter) => {
-    dispatch( setActiveFilter(filter));
+    dispatch(setActiveFilter(filter));
   };
   const btns = {
     all: {ru: 'Все', className: 'btn-outline-dark'},

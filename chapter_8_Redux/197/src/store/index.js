@@ -1,6 +1,6 @@
-import {heroes} from '../reducers/heroes';
-import {filters} from '../reducers/filters';
 import {configureStore} from '@reduxjs/toolkit';
+import {heroesReducer} from '../components/heroesList/heroesSlice';
+import {filtersReducer} from '../components/heroesFilters/filtersSlice';
 
 const stringMiddleware = () => (next) => (action) => {
   if (typeof action === 'string') {
@@ -12,8 +12,8 @@ const stringMiddleware = () => (next) => (action) => {
 
 const store = configureStore({
     reducer: {
-      heroes,
-      filters
+      heroes: heroesReducer,
+      filters: filtersReducer
     },
     middleware:
       (getDefaultMiddleware) => getDefaultMiddleware().concat(stringMiddleware),

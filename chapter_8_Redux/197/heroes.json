@@ -1,28 +1,16 @@
 {
   "heroes": [
     {
-      "name": "ads",
-      "description": "asdasd",
-      "element": "water",
-      "id": "ff521eda-a8bb-4f51-8235-32bd68e6cbeb"
-    },
-    {
-      "name": "ads",
-      "description": "asdasd",
+      "name": "ФЫВ",
+      "description": "ФЫВ",
       "element": "fire",
-      "id": "bf5c25f1-0fbd-494a-a1ac-4e6721b70e5c"
+      "id": "016e0976-3d1d-4499-8a0b-34a4b8dc0ddb"
     },
     {
-      "name": "asd",
-      "description": "asdas",
-      "element": "water",
-      "id": "57a0d59e-b679-4f2a-a7cd-f28fe2f14d79"
-    },
-    {
-      "name": "asd",
-      "description": "ad",
-      "element": "water",
-      "id": "30c852dc-71cd-45ba-9466-591a2e7e891d"
+      "name": "ФЫВ",
+      "description": "ФЫВ",
+      "element": "fire",
+      "id": "8adefb6d-2562-44a6-a438-c0869a650208"
     }
   ],
   "filters": [

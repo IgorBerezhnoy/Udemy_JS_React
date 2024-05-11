@@ -10,9 +10,9 @@
 
 import {Field, Form, Formik} from 'formik';
 import {useDispatch} from 'react-redux';
-import {addHero} from '../../actions';
 import * as uuId from 'uuid';
 import {useHttp} from '../../hooks/http.hook';
+import {addHero} from '../heroesList/heroesSlice';
 
 const HeroesAddForm = () => {
   const dispatch = useDispatch();
