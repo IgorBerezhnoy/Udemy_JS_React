@@ -2,7 +2,7 @@ import {useHttp} from '../../hooks/http.hook';
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {deleteHeroById, heroesFetched, heroesFetching, heroesFetchingError, setFilters} from '../../actions';
+import {deleteHeroThunk, fetchFilters, fetchHeroes} from '../../actions';
 import HeroesListItem from '../heroesListItem/HeroesListItem';
 import Spinner from '../spinner/Spinner';
 import {createSelector} from 'reselect';
@@ -28,18 +28,11 @@ const HeroesList = () => {
   const dispatch = useDispatch();
   const {request} = useHttp();
   const deleteHero = async (id) => {
-    const res = await request('http://localhost:3001/heroes/' + id, 'DELETE',);
-    if (res) {
-      dispatch(deleteHeroById(id));
-    }
+await dispatch(deleteHeroThunk(request, id));
   };
   useEffect(() => {
-    dispatch(heroesFetching());
-    request('http://localhost:3001/heroes')
-      .then(data => {
-        dispatch(heroesFetched(data));
-      })
-      .catch(() => dispatch(heroesFetchingError()));
+    dispatch(fetchFilters(request));
+    dispatch(fetchHeroes(request));
   }, []);
 
 

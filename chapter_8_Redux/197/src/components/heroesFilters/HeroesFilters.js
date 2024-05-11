@@ -14,20 +14,13 @@ import {useHttp} from '../../hooks/http.hook';
 const HeroesFilters = () => {
   const {request} = useHttp();
   useEffect(() => {
-    dispatch(heroesFetching());
-    request('http://localhost:3001/filters')
-      .then(data => {
-        dispatch(setFilters(data));
-      })
-      .catch(() => dispatch(heroesFetchingError()));
 
   }, []);
 
   const activeFilter = useSelector(state => state.filters.activeFilter);
   const dispatch = useDispatch();
   const onFilterSelect = (filter) => {
-    dispatch(setFilters(filter));
-    dispatch(setActiveFilter(filter));
+    dispatch( setActiveFilter(filter));
   };
   const btns = {
     all: {ru: 'Все', className: 'btn-outline-dark'},

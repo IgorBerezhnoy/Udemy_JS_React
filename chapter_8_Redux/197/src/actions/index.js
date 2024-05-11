@@ -1,3 +1,30 @@
+export const deleteHeroThunk = (request, id) => async (dispatch) => {
+  const res = await request('http://localhost:3001/heroes/' + id, 'DELETE',);
+  debugger
+  if (res) {
+    dispatch(deleteHeroById(id));
+  }
+
+};
+export const fetchFilters = (request) => async (dispatch) => {
+  dispatch(heroesFetching());
+  request('http://localhost:3001/filters')
+    .then(data => {
+      dispatch(setFilters(data));
+    })
+    .catch(() => dispatch(heroesFetchingError()));
+
+
+};
+export const fetchHeroes = (request) => (dispatch) => {
+  dispatch(heroesFetching());
+  request('http://localhost:3001/heroes')
+    .then(data => {
+      dispatch(heroesFetched(data));
+    })
+    .catch(() => dispatch(heroesFetchingError()));
+
+};
 export const heroesFetching = () => {
   return {
     type: 'HEROES_FETCHING'
@@ -28,7 +55,7 @@ export const addHero = (hero) => {
     payload: hero
   };
 };
-export const setFilters = (filter ) => {
+export const setFilters = (filter) => {
   return {
     type: 'SET_FILTERS',
     payload: filter
